@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #3563E9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.wrapper {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 350px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.wrapper h2 {
+    margin-top: 5px;
+    color: #1E1E1E;
+    text-align: center;
+}
+
+.logo {
+    width: 150px;
+    margin-bottom: 15px;
+}
+
+.input-box {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 25px;
+    border: 1px solid #3563E9;
+    background-color: #3563E9;
+    text-align: left;
+    color: white;
+}
+
+.input-box::placeholder {
+    color: white;
+}
+
+.login-button {
+    width: 50%;
+    padding: 10px;
+    border: none;
+    background-color: #3563E9;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 16px;
+    color: white;
+}
+
+.Create-Password-Account {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.Create-Password-Account a {
+    text-decoration: none;
+    color: black;
+}
