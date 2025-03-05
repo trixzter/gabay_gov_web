@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Event</title>
+  <link rel="stylesheet" href="/src/app/create-event/create-event.component.scss">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="upload-container">
+        <div class="upload-box">
+            <img src="upload-picture.png" alt="Upload Background" class="upload-image">
+            <input type="file" id="fileInput" accept="image/*" style="display: none;">
+            <button class="upload-btn">Attach your Event Photo Here 
+              <i class = "fa fa-upload"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<div class = "input-wrapper">
+  <div class="input-container">
+      <input type="text" placeholder= "Enter Title: Example - Libreng Gupit " class = "enter-title">
+      <p><i class = "fa fa-calendar"></i>Date and Time</p>
+      <input type="text" placeholder="Input the Date and Time: Example - January 1, 2025 | 8:AM to 5:00 PM " class = "date-loc">
+      <p><i class = "fa fa-location-arrow"></i>Location</p>
+      <input type="text" placeholder= "Input the Location: Example - Bugtong, Lipa, Courth " class = "date-loc">
+      <p> <i class="fa fa-check-circle"></i>About This Event</p>
+      <input type="text" placeholder= "Input what the Event is all about:Example - Tuloy tuloy lang ang Serbisyo at Suporta natin para sa mga Mag-aaral na KABATAAN na mag 
+      babalik Eskwela! Libreng GUPIT! handog sa inyo ng Sangguniang Kabataan!  
+      sa Sampalucan.  " class = "about-input"> 
+  </div>
+</div>
+
+<div class="save-content">
+  <div class="save-btn">
+    <button>SAVE</button>
+  </div>
+</div>
+</body>
+</html>
