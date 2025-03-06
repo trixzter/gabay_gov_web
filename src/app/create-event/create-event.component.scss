@@ -86,8 +86,14 @@
   margin-top: 1rem;
 }
 
+.date-time {
+  display: flex;
+    gap: 10px; 
+    flex-wrap: wrap; 
+}
+
 .input-container .date-loc {
-  width: 500px;
+  width: 350px;
   height: 25px;
   padding: 8px;
   font-size: 15px;
