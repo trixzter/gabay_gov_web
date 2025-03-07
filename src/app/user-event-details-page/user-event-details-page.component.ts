@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './user-event-details-page.component.html',
-  styleUrl: './user-event-details-page.component.css'
+  styleUrl: './user-event-details-page.component.scss'
 })
 export class UserEventDetailsPageComponent {
   event = {
