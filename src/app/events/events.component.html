@@ -15,7 +15,9 @@
         </div>
       </div>
       <div class="button-container">
-        <button class="button">Event Details</button>
+        <a [routerLink]="['/edit-event', event.id]" class="btn"> <!-- Dito ko po inadd yung RouterLink to Edit Event Page -->
+            Edit/Delete Event
+          </a>          
       </div>
     </section>
     <hr>
