@@ -14,14 +14,11 @@ export const routes: Routes = [
     path: 'create-event',
     component: CreateEventComponent
   },
-
   {
     path: 'home',
     component: HomeComponent
-  }
-
+  },
   { 
     path: 'edit-event/:id', component: EditEventComponent 
   }, 
-
 ];
