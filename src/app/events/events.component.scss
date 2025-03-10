@@ -1,14 +1,12 @@
-
-body{
-    font-family: inter, Helvetica, sans-serif
+body {
+    font-family: inter, Helvetica, sans-serif;
 }
 
-.event-details{
+.event-details {
     display: flex;
     justify-content: center;
     padding-top: 60px;
     padding-bottom: 50px;
-
 }
 
 .event-container {
@@ -18,20 +16,47 @@ body{
     padding: 10px;
 }
 
-
-.event-image{
+.event-image {
     width: 367px;
-    height: 119;
-    /* display: flex;
-    justify-content: center; */
+    height: 119px;
 }
 
-.event-content{
+.event-content {
     display: flex;
     flex-direction: column;
-    
 }
 
+.event-date,
+.event-date1 {
+    width: 200px;
+    opacity: 70%;
+    margin-bottom: 0px;
+}
+
+.event-time {
+    width: 200px;
+    opacity: 70%;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.button-container button {
+    margin-top: 4.5rem;
+}
+
+.button-container1 {
+    position: absolute;
+    top: 610px;
+}
+
+.button-container1 button {
+    margin-top: 4.5rem;
+}
+
+.event-title {
 .event-date{
 width: 200px;
 opacity: 70%;
@@ -40,11 +65,18 @@ opacity: 70%;
 .event-title{
     width: 400px;
 }
-.event-date1{
-    width: 200px;
-    opacity: 70%;
-    }
 
+.button {
+    background-color: rgb(53, 99, 233);
+    font-size: 20px;
+    color: white;
+    border-radius: 30px;
+    width: 230px;
+    height: 60px;
+    border: none;
+    cursor: pointer;
+    font-family: Inter;
+}
 .button-container {
     display: flex;
     justify-content: center;
@@ -69,4 +101,3 @@ opacity: 70%;
 .btn:hover {
     background-color: #357ae8;
     }
-

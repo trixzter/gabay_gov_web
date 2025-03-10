@@ -4,5 +4,6 @@ export interface Event {
   date: string;
   time: string;
   location: string;
+  description: string
   imageUrl: string;
 }
