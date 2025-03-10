@@ -3,6 +3,7 @@ import { EventsComponent } from './events/events.component';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { HomeComponent } from './home/home.component';
 import { EditEventComponent } from './edit-event/edit-event.component';
+import { RegisterPageComponent } from './register-page/register-page.component';
 
 
 export const routes: Routes = [
@@ -23,5 +24,12 @@ export const routes: Routes = [
   { 
     path: 'edit-event/:id', component: EditEventComponent 
   }, 
+
+  {
+    path: 'register',
+    component:RegisterPageComponent
+  },
+
+
 
 ];
