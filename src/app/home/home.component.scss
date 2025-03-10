@@ -1,0 +1,161 @@
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+
+.hero-section {
+  background: #2563eb;
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+  margin-top: 130px;
+}
+
+.hero-logo {
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+.hero-section h1 {
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+
+.events-section {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.events-header {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+
+.events-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.event-card {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event-image {
+  width: 450px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+.event-details {
+  flex: 1;
+}
+
+.event-title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 15px;
+}
+
+.event-date-time {
+  font-size: 14px;
+  color: #555;
+  margin: 5px 0;
+  font-weight: bold;
+}
+
+.event-description {
+  font-size: 14px;
+  color: #444;
+  margin: 5px 0;
+}
+
+
+.event-button {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.event-button:hover {
+  background-color: #1d4ed8;
+}
+
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  background-color: #2563eb;
+  color: white;
+  margin-top: 40px;
+}
+
+
+.footer {
+  background-color: #2563eb;
+  padding: 37px;
+  text-align: center;
+  
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding-bottom: 10px;
+  
+}
+
+.updates, .socials {
+  flex: 1;
+  text-align: left;
+  
+}
+
+.socials {
+  text-align: right;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.copyright {
+  font-size: 14px;
+  color: white;
+  text-align: center;
+  margin-top: 10px;
+}
