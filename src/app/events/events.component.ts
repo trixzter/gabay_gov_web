@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Event } from './models/event';
+import { EditEventComponent } from '../edit-event/edit-event.component';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-events',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './events.component.html',
   styleUrl: './events.component.scss'
 })
