@@ -19,7 +19,7 @@ export const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent
-  }
+  },
 
   { 
     path: 'edit-event/:id', component: EditEventComponent 
@@ -30,6 +30,9 @@ export const routes: Routes = [
     component:RegisterPageComponent
   },
 
+  {
+     path: '', redirectTo: '/update-profile', pathMatch: 'full'
+     }
 
 
 ];
