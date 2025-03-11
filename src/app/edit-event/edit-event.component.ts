@@ -14,7 +14,7 @@ import { Event } from '../models/event';
 })
 export class EditEventComponent implements OnInit {
   isDeletePopupVisible = false;
-  event!: Event;
+  event: Event | null = null;
 
   constructor(private eventService: EventService, private route: ActivatedRoute) {}
 
@@ -40,7 +40,9 @@ export class EditEventComponent implements OnInit {
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
-        this.event.imageUrl = reader.result as string;
+        if (this.event) { 
+          this.event.imageUrl = reader.result as string;
+        }
       };
       reader.readAsDataURL(file);
     }

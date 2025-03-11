@@ -8,7 +8,7 @@
 <body> 
   <div class="wrapper">
     <div class="upload-container">
-      <div class="upload-box">
+      <div class="upload-box" *ngIf="event">
         <img [src]="event.imageUrl || 'upload-picture.png'" alt="Upload Background" class="upload-image">
         <input type="file" id="fileInput" accept="image/*" (change)="onFileSelected($event)" style="display: none;">
         <button class="upload-btn" (click)="triggerFileInput()">
@@ -18,7 +18,8 @@
     </div>
   </div>
 
-  <div class="input-wrapper">
+  
+  <div *ngIf="event" class="input-wrapper">
     <div class="input-container">
       <input type="text" class="enter-title" [(ngModel)]="event.title" placeholder="Enter Title: Example - Libreng Gupit">
       
@@ -36,7 +37,7 @@
     </div>
   </div>
 
-  <div class="save-content">
+  <div class="save-content" *ngIf="event">
     <div class="save-btn">
       <button (click)="saveEvent()">SAVE</button>
     </div>
