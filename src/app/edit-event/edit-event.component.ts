@@ -13,8 +13,8 @@ import { Event } from '../models/event';
   styleUrls: ['./edit-event.component.scss']
 })
 export class EditEventComponent implements OnInit {
-  isDeletePopupVisible = false;
-  event: Event | null = null;
+  isDeletePopupVisible: boolean = false;  // Added explicit boolean type po
+  event: Event = {} as Event;  // niremove ko po yung `| null` and initialized po with an empty object
 
   constructor(private eventService: EventService, private route: ActivatedRoute) {}
 
