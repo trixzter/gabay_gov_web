@@ -4,6 +4,7 @@ import { CreateEventComponent } from './create-event/create-event.component';
 import { HomeComponent } from './home/home.component';
 import { EditEventComponent } from './edit-event/edit-event.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
+import { UpdateProfilePageComponent } from './update-profile-page/update-profile-page.component';
 
 
 export const routes: Routes = [
@@ -22,7 +23,8 @@ export const routes: Routes = [
   },
 
   { 
-    path: 'edit-event/:id', component: EditEventComponent 
+    path: 'edit-event/:id', 
+    component: EditEventComponent 
   }, 
 
   {
@@ -31,8 +33,8 @@ export const routes: Routes = [
   },
 
   {
-     path: '', redirectTo: '/update-profile', pathMatch: 'full'
-     }
-
+     path: 'update-profile', 
+     component: UpdateProfilePageComponent
+  },
 
 ];
