@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { EventService } from '../services/event.service';
 import { ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { Event } from '../models/event';
 
 @Component({
   selector: 'app-edit-event',
@@ -12,8 +13,8 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./edit-event.component.scss']
 })
 export class EditEventComponent implements OnInit {
-  event: any = { id: 0, title: '', date: '', time: '', location: '', description: '', imageUrl: '' };
-  isDeletePopupVisible = false; 
+  isDeletePopupVisible = false;
+  event!: Event;
 
   constructor(private eventService: EventService, private route: ActivatedRoute) {}
 
@@ -46,7 +47,7 @@ export class EditEventComponent implements OnInit {
   }
 
   saveEvent(): void {
-    alert('Event saved!');   //not sure if correct
+    alert('Event saved!');
   }
 
   showDeleteConfirmation(): void {
@@ -58,7 +59,7 @@ export class EditEventComponent implements OnInit {
   }
 
   deleteEvent(): void {
-    alert('Event deleted!');   //not sure if correct
+    alert('Event deleted!');
     this.isDeletePopupVisible = false;
   }
 }

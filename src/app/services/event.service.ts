@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Event } from '../events/models/event';
+import { Event } from '../models/event';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class EventService {
     },
     {
       id: 2,
-      title: 'Libreng Gupit Para Sa Kabataan',
+      title: 'Libre Gupit Para Sa Kabataan',
       date: '2025-05-10',
       time: '9:00 AM',
       location: 'Rizal',
