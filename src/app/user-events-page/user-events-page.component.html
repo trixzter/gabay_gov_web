@@ -1,0 +1,25 @@
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    
+
+  <section *ngFor="let event of user" class="event-details">
+    <div class="event-container">
+        <img class="event-image" [src]="event.imageUrl" alt="{{ event.title }}">
+        <div class="event-content">
+            <h1 class="event-title">{{ event.title }}</h1>
+            <p class="event-date">{{ event.date }}</p>
+            <p class="event-time">{{ event.time }}</p>
+            <p class="event-location">{{ event.location }}</p>
+            <div class="button-container">
+                <a class="btn">Event Details</a>
+            </div>
+        </div>
+    </div>
+</section>
+<hr>
+  </body>
