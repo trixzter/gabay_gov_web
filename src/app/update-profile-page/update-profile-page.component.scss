@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #3366FF; /* Blue Background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Profile Container */
+.profile-container {
+    display: flex;
+    background: white;
+    width: 800px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Sidebar */
+.profile-sidebar {
+    background: #f4f4f4;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: lightgray;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.profile-sidebar p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Profile Content */
+.profile-content {
+    width: 70%;
+    padding: 40px;
+    text-align: center;
+}
+
+.profile-content h1 {
+    color: #3366FF;
+    margin-bottom: 20px;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background: #3366FF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #1a4fd8;
+}
+
+.profile-pic i {
+font-size: 110px;
+padding-left: 27px;
+padding-top: 10px;
+color: rgb(138, 138, 138);
+}
