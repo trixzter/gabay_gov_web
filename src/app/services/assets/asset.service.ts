@@ -10,17 +10,15 @@ const baseUrl = 'http://localhost:5000';
 })
 export class AssetService {
 
-  private assets: AssetModel[] = [];
-
   constructor(private http: HttpClient) { }
 
-  upload(file: File): Observable<any> {
+  uploadFile(file: File): Observable<any> {
     const formData = new FormData();
     formData.append('file', file);
     return this.http.post(`${baseUrl}/`, formData);
   }
 
-  download(filename: string): Observable<Blob> {
+  downloadFile(filename: string): Observable<Blob> {
     return this.http.get(`${baseUrl}/${filename}`, { responseType: 'blob' });
   }
 }

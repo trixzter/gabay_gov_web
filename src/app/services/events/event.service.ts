@@ -9,44 +9,43 @@ const baseUrl = 'http://localhost:5000';
   providedIn: 'root'
 })
 export class EventService {
-
   
   private events: EventModel[] = [];
   
-    constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-    create(event: EventModel): Observable<any> {
-      return this.http.post(`{baseUrl}/events`, event);
-    }
+  createEvent(event: EventModel): Observable<any> {
+    return this.http.post(`{baseUrl}/events`, event);
+  }
 
-    getAll(title?:string, location?:string): Observable<EventModel[]> {
-      let params = new HttpParams();
-      if (title) {
-        params = params.set('title', title);
-      }
-      if (location) {
-        params = params.set('location', location);
-      }
-      return this.http.get<EventModel[]>(`${baseUrl}/events`, { params });
+  getAllEvents(title?:string, location?:string): Observable<EventModel[]> {
+    let params = new HttpParams();
+    if (title) {
+      params = params.set('title', title);
     }
+    if (location) {
+      params = params.set('location', location);
+    }
+    return this.http.get<EventModel[]>(`${baseUrl}/events`, { params });
+  }
 
-    get(id: number): Observable<EventModel> {
-      return this.http.get<EventModel>(`${baseUrl}/events/${id}`); //////
-    }
+  getEvent(id: number): Observable<EventModel> {
+    return this.http.get<EventModel>(`${baseUrl}/events/${id}`); 
+  }
   
-    update(id: number, event: EventModel): Observable<any> {
-      return this.http.put(`${baseUrl}/events/${id}`, event);
-    }
+  updateEvent(id: number, event: EventModel): Observable<any> {
+    return this.http.put(`${baseUrl}/events/${id}`, event);
+  }
   
-    delete(id: number): Observable<any> {
-      return this.http.delete(`${baseUrl}/events/${id}`);
-    }
+  deleteEvent(id: number): Observable<any> {
+    return this.http.delete(`${baseUrl}/events/${id}`);
+  }
 
   getEvents(): Observable<EventModel[]> {
     return of(this.events);  
   }
 
-  getEventById(id: number): Observable<EventModel | undefined> {
+  getLocalEventById(id: number): Observable<EventModel | undefined> {
     const event = this.events.find(event => event.id === id);
     return of(event);  
   }

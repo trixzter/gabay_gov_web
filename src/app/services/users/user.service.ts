@@ -10,12 +10,11 @@ const baseUrl = 'http://localhost:5000';
 })
 export class UserService {
 
-
 private users: UserModel[] = [];
 
   constructor(private http: HttpClient) { }
 
-  create(user: UserModel): Observable<any> {
+  register(user: UserModel): Observable<any> {
     return this.http.post(`${baseUrl}/users/register`, user);
   }
 
@@ -23,7 +22,7 @@ private users: UserModel[] = [];
     return this.http.post(`${baseUrl}/users/login`, credentials);
   }
 
-  update(id: number, user: UserModel): Observable<any> {
+  updateUser(id: number, user: UserModel): Observable<any> {
     return this.http.put(`${baseUrl}/users/${id}`, user);
   }
 }
