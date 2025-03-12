@@ -5,7 +5,7 @@
 </head>
 
 <body>
-    
+    <app-user-navigation-header></app-user-navigation-header>
 
   <section *ngFor="let event of user" class="event-details">
     <div class="event-container">
@@ -16,7 +16,7 @@
             <p class="event-time">{{ event.time }}</p>
             <p class="event-location">{{ event.location }}</p>
             <div class="button-container">
-                <a class="btn">Event Details</a>
+                <a routerLink="/user-event-details-page" routerLinkActive="active" class="btn">Event Details</a>
             </div>
         </div>
     </div>

@@ -1,12 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
-import { Event } from '../events/models/event';
+import { Event } from '../models/event';
+import { UserNavigationHeaderComponent } from '../user-navigation-header/user-navigation-header.component';
 
 @Component({
   selector: 'app-user-events-page',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, 
+    UserNavigationHeaderComponent,
+    RouterLink,],
   templateUrl: './user-events-page.component.html',
   styleUrl: './user-events-page.component.scss'
 })

@@ -4,11 +4,14 @@ import { EventService } from '../services/event.service';
 import { ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Event } from '../models/event';
+import { OrganizerNavigationHeaderComponent } from '../organizer-navigation-header/organizer-navigation-header.component';
 
 @Component({
   selector: 'app-edit-event',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule,
+    OrganizerNavigationHeaderComponent
+  ],
   templateUrl: './edit-event.component.html',
   styleUrls: ['./edit-event.component.scss']
 })

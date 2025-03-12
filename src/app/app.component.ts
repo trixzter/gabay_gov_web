@@ -5,13 +5,20 @@ import { OrganizerNavigationHeaderComponent } from './organizer-navigation-heade
 import { UserNavigationHeaderComponent } from './user-navigation-header/user-navigation-header.component';
 import { AboutUsPageComponent } from './about-us-page/about-us-page.component';
 import { UpdateProfilePageComponent } from './update-profile-page/update-profile-page.component';
+import { HomeComponent } from './home/home.component';
 
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, OrganizerNavigationHeaderComponent, UserNavigationHeaderComponent, UpdateProfilePageComponent],
+  imports: [RouterOutlet, 
+  RouterLink, 
+  OrganizerNavigationHeaderComponent, 
+  UserNavigationHeaderComponent, 
+  UpdateProfilePageComponent, 
+  HomeComponent,
+  AboutUsPageComponent,],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

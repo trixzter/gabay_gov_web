@@ -4,11 +4,12 @@ import { Event } from '../models/event';
 import { EditEventComponent } from '../edit-event/edit-event.component';
 import { RouterLink } from '@angular/router';
 import { EventService } from '../services/event.service';
+import { OrganizerNavigationHeaderComponent } from '../organizer-navigation-header/organizer-navigation-header.component';
 
 @Component({
   selector: 'app-events',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, OrganizerNavigationHeaderComponent],
   templateUrl: './events.component.html',
   styleUrl: './events.component.scss'
 })

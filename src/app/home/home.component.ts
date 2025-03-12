@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { Event } from './models/event';
 import { CommonModule } from '@angular/common';
+import { UserNavigationHeaderComponent } from '../user-navigation-header/user-navigation-header.component';
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, UserNavigationHeaderComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
