@@ -9,12 +9,16 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-user-event-details-page',
   standalone: true,
-  imports: [CommonModule, UserNavigationHeaderComponent, FormsModule],
+  imports: [
+    CommonModule, 
+    UserNavigationHeaderComponent, 
+    FormsModule
+  ],
   templateUrl: './user-event-details-page.component.html',
   styleUrl: './user-event-details-page.component.scss'
 })
 export class UserEventDetailsPageComponent implements OnInit {
-  event: EventModel = {} as EventModel;  // niremove ko po yung `| null` and initialized po with an empty object
+  event: EventModel = {} as EventModel;  
 
   constructor(private eventService: EventService, private route: ActivatedRoute) {}
 

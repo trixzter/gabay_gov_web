@@ -1,49 +1,30 @@
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+<app-user-navigation-header></app-user-navigation-header>
+<section class="content" *ngIf="event?.id">
+  <div class="image-content">
+    <img class="background-image" src="BACKGROUND.jpg" alt="background" />
+  </div>
+  <div class="libreng-gupit-content">
+    <img [src]="event.imageUrl" class="libreng-gupit" alt="{{ event.title }}" />
+  </div>
+  <div class="event-content">
+    <h1>{{ event.title }}</h1>
 
-<body>
-    <app-user-navigation-header></app-user-navigation-header>
+    <div class="date_time">
+      <i class="fa fa-calendar"></i> Date And Time
+      <div class="date-time">{{ event.date }} | {{ event.time }}</div>
+    </div>
 
-   
-    <section class="content" *ngIf="event?.id">
-        <div class="image-content">
-            <img class="background-image" src="BACKGROUND.jpg" alt="background">
-        </div>
-        <div class="libreng-gupit-content">
-            <img [src]="event.imageUrl" class="libreng-gupit" alt="{{ event.title }}">
-        </div>
-        <div class="event-content">
-            <h1>{{ event.title }}</h1>
+    <div class="location">
+      <i class="fa fa-location-arrow"></i> Location
+      <div class="loc">
+        {{ event.location }}
+      </div>
+    </div>
 
-            <div class="date_time">
-                <i class="fa fa-calendar"></i> Date And Time
-                <div class="date-time">
-                    {{ event.date }} | {{ event.time }}
-                </div>
-            </div>
-
-            <div class="location">
-                <i class="fa fa-location-arrow"></i> Location
-                <div class="loc">
-                    {{ event.location }}
-                </div>
-            </div>
-
-            <div class="about_this_event">
-                <i class="fa fa-check-circle"></i> About This Event
-                <div class="about">
-                    {{ event.description }}<br>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <p *ngIf="!event?.id" class="loading-message">Loading event details...</p>
-</body>
+    <div class="about_this_event">
+      <i class="fa fa-check-circle"></i> About This Event
+      <div class="about">{{ event.description }}<br /></div>
+    </div>
+  </div>
+</section>
+<p *ngIf="!event?.id" class="loading-message">Loading event details...</p>

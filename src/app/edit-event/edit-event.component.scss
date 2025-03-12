@@ -1,17 +1,9 @@
-
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Inter, Helvetica, sans-serif;
-}
-
 .wrapper {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 11rem 0 5rem 0; 
+  padding: 11rem 0 5rem 0;
 }
 
 .upload-container {
@@ -32,13 +24,13 @@
 
 .upload-image {
   width: 100%;
-  object-fit: contain; 
+  object-fit: contain;
   border-radius: 35px;
 }
 
 .upload-btn {
   position: absolute;
-  background-color: #3563E9;
+  background-color: #3563e9;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -54,13 +46,12 @@
   background-color: #1a4ed8;
 }
 
-.input-wrapper{
+.input-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
-
 
 .input-container {
   width: 80%;
@@ -76,10 +67,9 @@
 }
 
 .input-container i {
-  color: #3563E9;
+  color: #3563e9;
   margin-right: 0.5rem;
 }
-
 
 .input-container p {
   font-weight: bold;
@@ -88,8 +78,8 @@
 
 .date-time {
   display: flex;
-    gap: 10px; 
-    flex-wrap: wrap; 
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .input-container .date-loc {
@@ -105,7 +95,7 @@
 .input-container .about-input {
   width: 60rem;
   height: 6rem;
-  padding:0rem 0.5rem 0.5rem 1rem;
+  padding: 0rem 0.5rem 0.5rem 1rem;
   border: 1px solid #ccc;
   border-radius: 6px;
   margin-top: 1rem;
@@ -115,23 +105,21 @@
   white-space: pre-line;
 }
 
-
-.save-content{
+.save-content {
   width: 80%;
   max-width: 90rem;
   margin-top: 1.5rem;
   position: absolute;
   display: flex;
-  justify-content: flex-end; 
-  gap: 10px; 
+  justify-content: flex-end;
+  gap: 10px;
 }
 
-
 .save-btn button {
-  display:flex;
+  display: flex;
   justify-self: end;
   margin-bottom: 1.5rem;
-  background-color: #3563E9;
+  background-color: #3563e9;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -159,7 +147,7 @@ save-btn button,
 }
 
 .save-btn button {
-  background-color: #3563E9;
+  background-color: #3563e9;
   color: white;
 }
 
@@ -169,8 +157,8 @@ save-btn button,
 
 .delete-btn {
   position: absolute;
-  top: 140px; 
-  right: 20px; 
+  top: 140px;
+  right: 20px;
   background-color: red;
   color: white;
   border: none;
@@ -191,7 +179,7 @@ save-btn button,
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #3563E9; 
+  background: #3563e9;
   color: white;
   padding: 25px;
   border-radius: 15px;
@@ -223,8 +211,8 @@ save-btn button,
 
 .cancel-delete {
   background-color: white;
-  color: #3563E9;
-  border: 2px solid #3563E9;
+  color: #3563e9;
+  border: 2px solid #3563e9;
   padding: 10px 15px;
   border-radius: 8px;
   cursor: pointer;

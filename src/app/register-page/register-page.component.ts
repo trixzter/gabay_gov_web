@@ -5,7 +5,10 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-register-page',
   standalone: true,
-  imports: [FormsModule, RouterLink],
+  imports: [
+    FormsModule, 
+    RouterLink
+  ],
   templateUrl: './register-page.component.html',
   styleUrl: './register-page.component.scss'
   

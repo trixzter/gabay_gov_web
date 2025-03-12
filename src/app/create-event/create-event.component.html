@@ -1,44 +1,63 @@
-<head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  <!-- Retained Link for Font-awesome -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet"> <!-- Not sure if working -->
-</head>
-<body>
-  <app-organizer-navigation-header></app-organizer-navigation-header>
-  <div class="wrapper">
-    <div class="upload-container">
-        <div class="upload-box">
-            <img src="upload-picture.png" alt="Upload Background" class="upload-image">
-            <input type="file" id="fileInput" accept="image/*" style="display: none;">
-            <button class="upload-btn">Attach your Event Photo Here 
-              <i class = "fa fa-upload"></i>
-            </button>
-        </div>
+<app-organizer-navigation-header></app-organizer-navigation-header>
+<div class="wrapper">
+  <div class="upload-container">
+    <div class="upload-box">
+      <img
+        src="upload-picture.png"
+        alt="Upload Background"
+        class="upload-image"
+      />
+      <input
+        type="file"
+        id="fileInput"
+        accept="image/*"
+        style="display: none"
+      />
+      <button class="upload-btn">
+        Attach your Event Photo Here
+        <i class="fa fa-upload"></i>
+      </button>
     </div>
-</div>
-
-
-<div class = "input-wrapper">
-  <div class="input-container">
-      <input type="text" placeholder= "Enter Title: Example - Libreng Gupit " class = "enter-title">
-      <p><i class = "fa fa-calendar"></i>Date and Time</p>
-        <div class = "date-time">
-          <input type="text" placeholder="Input the Date Example - January 1, 2025 " class = "date-loc"> 
-          <input type="text" placeholder="Input the Time: Example - 8:AM to 5:00 PM " class = "date-loc">
-        </div>
-      <p><i class = "fa fa-location-arrow"></i>Location</p>
-      <input type="text" placeholder= "Input the Location: Example - Bugtong, Lipa, Courth " class = "date-loc">
-      <p> <i class="fa fa-check-circle"></i>About This Event</p>
-      <input type="text" placeholder= "Input what the Event is all about:Example - Tuloy tuloy lang ang Serbisyo at Suporta natin para sa mga Mag-aaral na KABATAAN na mag 
-      babalik Eskwela! Libreng GUPIT! handog sa inyo ng Sangguniang Kabataan!  
-      sa Sampalucan.  " class = "about-input"> 
   </div>
 </div>
-
+<div class="input-wrapper">
+  <div class="input-container">
+    <input
+      type="text"
+      placeholder="Enter Title: Example - Libreng Gupit "
+      class="enter-title"
+    />
+    <p><i class="fa fa-calendar"></i>Date and Time</p>
+    <div class="date-time">
+      <input
+        type="text"
+        placeholder="Input the Date Example - January 1, 2025 "
+        class="date-loc"
+      />
+      <input
+        type="text"
+        placeholder="Input the Time: Example - 8:AM to 5:00 PM "
+        class="date-loc"
+      />
+    </div>
+    <p><i class="fa fa-location-arrow"></i>Location</p>
+    <input
+      type="text"
+      placeholder="Input the Location: Example - Bugtong, Lipa, Courth "
+      class="date-loc"
+    />
+    <p><i class="fa fa-check-circle"></i>About This Event</p>
+    <input
+      type="text"
+      placeholder="Input what the Event is all about:Example - Tuloy tuloy lang ang Serbisyo at Suporta natin para sa mga Mag-aaral na KABATAAN na mag 
+        babalik Eskwela! Libreng GUPIT! handog sa inyo ng Sangguniang Kabataan!  
+        sa Sampalucan.  "
+      class="about-input"
+    />
+  </div>
+</div>
 <div class="save-content">
   <div class="save-btn">
     <button>SAVE</button>
   </div>
 </div>
-
