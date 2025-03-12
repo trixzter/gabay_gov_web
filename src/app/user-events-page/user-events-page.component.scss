@@ -1,15 +1,8 @@
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: #ffffff;
-    margin: 0;
-    padding: 0;
-}
-
 .event-details {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 100px 0 30px; /* Added top padding for navbar space */
+    padding: 100px 0 30px; 
     width: 100%;
 }
 
@@ -17,7 +10,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center; /* Center content horizontally */
+    justify-content: center; 
     width: 80%;
     padding: 30px;
     background: #fff;
@@ -32,14 +25,14 @@ body {
     height: auto;
     border-radius: 10px;
     object-fit: cover;
-    flex-shrink: 0; /* Prevents image from shrinking */
+    flex-shrink: 0; 
 }
 
 .event-content {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers content */
-    text-align: center; /* Centers text */
+    align-items: center; 
+    text-align: center; 
     width: 100%;
 }
 
@@ -60,7 +53,7 @@ body {
 
 .button-container {
     display: flex;
-    justify-content: center; /* Centers button */
+    justify-content: center; 
     margin-top: 15px;
     width: 100%;
 }
@@ -83,7 +76,7 @@ body {
     background-color: #357ae8;
 }
 
-/* Divider */
+
 hr {
     width: 80%;
     border: 0.5px solid #ddd;

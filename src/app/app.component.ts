@@ -1,24 +1,13 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
-import { provideRouter, Routes } from '@angular/router';
-import { OrganizerNavigationHeaderComponent } from './organizer-navigation-header/organizer-navigation-header.component';
-import { UserNavigationHeaderComponent } from './user-navigation-header/user-navigation-header.component';
-import { AboutUsPageComponent } from './about-us-page/about-us-page.component';
-import { UpdateProfilePageComponent } from './update-profile-page/update-profile-page.component';
-import { HomeComponent } from './home/home.component';
-
+import { RouterOutlet } from '@angular/router';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, 
-  RouterLink, 
-  OrganizerNavigationHeaderComponent, 
-  UserNavigationHeaderComponent, 
-  UpdateProfilePageComponent, 
-  HomeComponent,
-  AboutUsPageComponent,],
+  imports: [
+    RouterOutlet, 
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

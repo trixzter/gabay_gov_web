@@ -9,15 +9,17 @@ import { OrganizerNavigationHeaderComponent } from '../organizer-navigation-head
 @Component({
   selector: 'app-edit-event',
   standalone: true,
-  imports: [CommonModule, FormsModule,
+  imports: [
+    CommonModule, 
+    FormsModule,
     OrganizerNavigationHeaderComponent
   ],
   templateUrl: './edit-event.component.html',
   styleUrls: ['./edit-event.component.scss']
 })
 export class EditEventComponent implements OnInit {
-  isDeletePopupVisible: boolean = false;  // Added explicit boolean type po
-  event: EventModel = {} as EventModel;  // niremove ko po yung `| null` and initialized po with an empty object
+  isDeletePopupVisible: boolean = false;  
+  event: EventModel = {} as EventModel;  
 
   constructor(private eventService: EventService, private route: ActivatedRoute) {}
 

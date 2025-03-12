@@ -1,11 +1,4 @@
-<head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-</head>
-
-<body>
-  <app-organizer-navigation-header></app-organizer-navigation-header>
+<app-organizer-navigation-header></app-organizer-navigation-header>
     <section *ngFor="let event of events" class="event-details">
       <div class="event-container">
         <img class="event-image" [src]="event.imageUrl" alt="{{ event.title }}">
@@ -17,10 +10,9 @@
         </div>
       </div>
       <div class="button-container">
-        <a [routerLink]="['/edit-event', event.id]" class="btn"> <!-- Dito ko po inadd yung RouterLink to Edit Event Page -->
+        <a [routerLink]="['/edit-event', event.id]" class="btn"> 
             Edit/Delete Event
           </a>          
       </div>
     </section>
     <hr>
-  </body>

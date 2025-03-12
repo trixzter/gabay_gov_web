@@ -4,7 +4,9 @@ import { OrganizerNavigationHeaderComponent } from '../organizer-navigation-head
 @Component({
   selector: 'app-update-profile-page',
   standalone: true,
-  imports: [OrganizerNavigationHeaderComponent],
+  imports: [
+    OrganizerNavigationHeaderComponent
+  ],
   templateUrl: './update-profile-page.component.html',
   styleUrl: './update-profile-page.component.scss'
 })

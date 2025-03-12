@@ -6,7 +6,10 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-organizer-navigation-header',
   standalone: true,
-  imports: [RouterLink, CommonModule],
+  imports: [
+    RouterLink, 
+    CommonModule
+  ],
   templateUrl: './organizer-navigation-header.component.html',
   styleUrl: './organizer-navigation-header.component.scss'
 })
@@ -22,7 +25,7 @@ export class OrganizerNavigationHeaderComponent {
 
   logout() {
     console.log('User logged out');
-    this.router.navigate(['/']); // Redirect to landing page
+    this.router.navigate(['/']); 
   }
 }
 

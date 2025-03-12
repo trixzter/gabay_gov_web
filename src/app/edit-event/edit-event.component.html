@@ -1,12 +1,4 @@
-<head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-</head>
-
-<body> 
-  <app-organizer-navigation-header></app-organizer-navigation-header>
+<app-organizer-navigation-header></app-organizer-navigation-header>
   <div class="wrapper">
     <div class="upload-container">
       <div class="upload-box" *ngIf="event">
@@ -18,8 +10,6 @@
       </div>
     </div>
   </div>
-
-  
   <div *ngIf="event" class="input-wrapper">
     <div class="input-container">
       <input type="text" class="enter-title" [(ngModel)]="event.title" placeholder="Enter Title: Example - Libreng Gupit">
@@ -37,17 +27,15 @@
       <input type="text" class="about-input" [(ngModel)]="event.description" placeholder="Describe the event">
     </div>
   </div>
-
   <div class="save-content" *ngIf="event">
     <div class="save-btn">
       <button (click)="saveEvent()">SAVE</button>
     </div>
   </div>
-
   <button class="delete-btn" (click)="showDeleteConfirmation()">Delete Event</button>
   <div class="delete-confirmation" *ngIf="isDeletePopupVisible">
     <p>Are you sure you want to delete this event?</p>
     <button class="confirm-delete" (click)="deleteEvent()">Yes, Delete</button>
     <button class="cancel-delete" (click)="hideDeleteConfirmation()">Cancel</button>
   </div>
-</body>
+

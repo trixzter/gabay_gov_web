@@ -1,6 +1,6 @@
-body {
+.all-contents {
     font-family: Arial, sans-serif;
-    background-color: #3366FF; /* Blue Background */
+    background-color: #3366FF; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,7 +8,7 @@ body {
     margin: 0;
 }
 
-/* Profile Container */
+
 .profile-container {
     display: flex;
     background: white;
@@ -18,7 +18,7 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Sidebar */
+
 .profile-sidebar {
     background: #f4f4f4;
     width: 30%;
@@ -42,7 +42,7 @@ body {
     color: #555;
 }
 
-/* Profile Content */
+
 .profile-content {
     width: 70%;
     padding: 40px;
@@ -54,7 +54,7 @@ body {
     margin-bottom: 20px;
 }
 
-/* Form Styling */
+
 form {
     display: flex;
     flex-direction: column;

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EventModel } from '../models/event.model';
-import { EditEventComponent } from '../edit-event/edit-event.component';
 import { RouterLink } from '@angular/router';
 import { EventService } from '../services/event.service';
 import { OrganizerNavigationHeaderComponent } from '../organizer-navigation-header/organizer-navigation-header.component';
@@ -9,7 +8,11 @@ import { OrganizerNavigationHeaderComponent } from '../organizer-navigation-head
 @Component({
   selector: 'app-events',
   standalone: true,
-  imports: [CommonModule, RouterLink, OrganizerNavigationHeaderComponent],
+  imports: [
+    CommonModule, 
+    RouterLink, 
+    OrganizerNavigationHeaderComponent
+  ],
   templateUrl: './events.component.html',
   styleUrl: './events.component.scss'
 })
