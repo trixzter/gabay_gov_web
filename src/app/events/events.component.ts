@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Event } from '../models/event';
+import { EventModel } from '../models/event.model';
 import { EditEventComponent } from '../edit-event/edit-event.component';
 import { RouterLink } from '@angular/router';
 import { EventService } from '../services/event.service';
@@ -14,7 +14,7 @@ import { OrganizerNavigationHeaderComponent } from '../organizer-navigation-head
   styleUrl: './events.component.scss'
 })
 export class EventsComponent implements OnInit{
-  events: Event[] = [];
+  events: EventModel[] = [];
 
   constructor(private eventService: EventService) {}
 

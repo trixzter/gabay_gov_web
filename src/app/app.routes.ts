@@ -37,9 +37,9 @@ export const routes: Routes = [
     component: EventsComponent
   },
   {
-    path: 'user-event-details-page', 
+    path: 'user-event-details-page/:id', 
     component: UserEventDetailsPageComponent
- },
+  },
   {
     path: 'create-event',
     component: CreateEventComponent

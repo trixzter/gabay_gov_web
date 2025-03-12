@@ -7,7 +7,7 @@
 <body>
     <app-user-navigation-header></app-user-navigation-header>
 
-  <section *ngFor="let event of user" class="event-details">
+  <section *ngFor="let event of events" class="event-details">
     <div class="event-container">
         <img class="event-image" [src]="event.imageUrl" alt="{{ event.title }}">
         <div class="event-content">
@@ -16,7 +16,7 @@
             <p class="event-time">{{ event.time }}</p>
             <p class="event-location">{{ event.location }}</p>
             <div class="button-container">
-                <a routerLink="/user-event-details-page" routerLinkActive="active" class="btn">Event Details</a>
+                <a [routerLink]="['/user-event-details-page', event.id]" routerLinkActive="active" class="event-button" class="btn">Event Details</a>
             </div>
         </div>
     </div>

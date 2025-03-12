@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { EventService } from '../services/event.service';
 import { ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { Event } from '../models/event';
+import { EventModel } from '../models/event.model';
 import { OrganizerNavigationHeaderComponent } from '../organizer-navigation-header/organizer-navigation-header.component';
 
 @Component({
@@ -17,7 +17,7 @@ import { OrganizerNavigationHeaderComponent } from '../organizer-navigation-head
 })
 export class EditEventComponent implements OnInit {
   isDeletePopupVisible: boolean = false;  // Added explicit boolean type po
-  event: Event = {} as Event;  // niremove ko po yung `| null` and initialized po with an empty object
+  event: EventModel = {} as EventModel;  // niremove ko po yung `| null` and initialized po with an empty object
 
   constructor(private eventService: EventService, private route: ActivatedRoute) {}
 
