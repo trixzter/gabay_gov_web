@@ -3,7 +3,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 5rem 0 5rem 0; 
+  padding: 5rem 0 5rem 0;
 }
 
 .upload-container {
@@ -24,13 +24,13 @@
 
 .upload-image {
   width: 100%;
-  object-fit: contain; 
+  object-fit: contain;
   border-radius: 35px;
 }
 
 .upload-btn {
   position: absolute;
-  background-color: #3563E9;
+  background-color: #3563e9;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -70,7 +70,7 @@
 }
 
 .input-container i {
-  color: #3563E9;
+  color: #3563e9;
   margin-right: 0.5rem;
 }
 
@@ -107,15 +107,15 @@
 }
 
 .save-content {
-  width: 80%; 
+  width: 80%;
   display: flex;
-  justify-content: flex-end; 
+  justify-content: flex-end;
   margin-top: 1.5rem;
   margin-bottom: 15px;
 }
 
 .save-btn button {
-  background-color: #3563E9;
+  background-color: #3563e9;
   color: white;
   border: none;
   padding: 10px 25px;

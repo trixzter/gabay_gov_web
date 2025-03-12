@@ -4,12 +4,8 @@ import { UserNavigationHeaderComponent } from '../user-navigation-header/user-na
 @Component({
   selector: 'app-about-us-page',
   standalone: true,
-  imports: [
-    UserNavigationHeaderComponent
-  ],
+  imports: [UserNavigationHeaderComponent],
   templateUrl: './about-us-page.component.html',
-  styleUrl: './about-us-page.component.scss'
+  styleUrl: './about-us-page.component.scss',
 })
-export class AboutUsPageComponent {
-
-}
+export class AboutUsPageComponent {}

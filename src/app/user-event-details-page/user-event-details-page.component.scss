@@ -1,71 +1,68 @@
-.content{
-    padding-top: 130px;
+.content {
+  padding-top: 130px;
 }
-.image-content{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    padding-top: 80px;
-}
-
-.libreng-gupit-content{
-    display: flex;
-    justify-content: center;
+.image-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  padding-top: 80px;
 }
 
-.background-image{
-    height: 476px;
-    width: 1900px;
-
+.libreng-gupit-content {
+  display: flex;
+  justify-content: center;
 }
 
-.libreng-gupit{
-    width: 1045px;
-    height: 339px;
-    border-radius: 80px;
+.background-image {
+  height: 476px;
+  width: 1900px;
 }
 
-.event-content{
-margin-top: 5rem;
-margin-left:10rem;
-display: flex;
-flex-direction: column;
-gap:30px;
+.libreng-gupit {
+  width: 1045px;
+  height: 339px;
+  border-radius: 80px;
 }
 
+.event-content {
+  margin-top: 5rem;
+  margin-left: 10rem;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
 
 h1 {
-    font-size: 30px;
-    font-family:"Inter", sans-serif;
+  font-size: 30px;
+  font-family: "Inter", sans-serif;
 }
 
-.date_time, 
+.date_time,
 .location {
-    font-size: 16px;
+  font-size: 16px;
 }
 
-.about_this_event{
-    font-size: 16px;
-    padding-bottom: 75px;
+.about_this_event {
+  font-size: 16px;
+  padding-bottom: 75px;
 }
 
 .date-time,
 .loc,
 .about {
-    padding-top: 1rem;
-    font-family:"inter";
+  padding-top: 1rem;
+  font-family: "inter";
 }
 
-.about{
-    width: 70rem;
+.about {
+  width: 70rem;
 }
 
 .fa-calendar,
 .fa-location-arrow,
-.fa-check-circle
-{
-    color: rgb(53, 99, 233);
+.fa-check-circle {
+  color: rgb(53, 99, 233);
 }

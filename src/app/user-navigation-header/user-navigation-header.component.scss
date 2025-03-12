@@ -1,103 +1,99 @@
 .navbar {
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    background: white;
-    border-bottom: 1px solid #ddd;
-    gap: 30px;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background: white;
+  border-bottom: 1px solid #ddd;
+  gap: 30px;
 }
 
-
 .logo {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .logo img {
-    height: 40px;
-    margin-right: 5px;
+  height: 40px;
+  margin-right: 5px;
 }
 
 .logo span {
-    font-size: 18px;
-    font-weight: bold;
-    color: #3498db;
+  font-size: 18px;
+  font-weight: bold;
+  color: #3498db;
 }
 
-
 .nav-links {
-    display: flex;
-    gap: 40px;
-    cursor: pointer;
+  display: flex;
+  gap: 40px;
+  cursor: pointer;
 }
 
 .nav-links a {
-    text-decoration: none;
-    color: black;
-    font-size: 16px;
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
 }
 
 .nav-links a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
-
 .search-container {
-    display: flex;
-    align-items: center;
-    flex-grow: 1;
-    max-width: 1000px;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  max-width: 1000px;
 }
 
 .search-inputs {
-    display: flex;
-    align-items: center;
-    flex-grow: 1;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  gap: 10px;
 }
 
 .search-inputs input {
-    padding: 10px 14px;
-    border: 1px solid #ddd;
-    border-radius: 20px;
-    font-size: 14px;
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 14px;
 }
 
 .search-inputs input:first-child {
-    flex-grow: 1;
+  flex-grow: 1;
 }
 
 .search-inputs input:last-child {
-    width: 180px;
+  width: 180px;
 }
 
 .search-inputs i.fa-search {
-    color: #3563E9;
-    font-size: 20px;
-    margin-left: -30px;
-    cursor: pointer;
+  color: #3563e9;
+  font-size: 20px;
+  margin-left: -30px;
+  cursor: pointer;
 }
 
-
 .login-button {
-    background: #3563E9;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-left: auto; 
+  background: #3563e9;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: auto;
 }
 
 .login-button:hover {
-    background: #2a52be;
+  background: #2a52be;
 }
 
 .search-container i {
-    color: blue;
-    margin-left: 5px;
-    cursor: pointer;
-    font-size: 20px;
+  color: blue;
+  margin-left: 5px;
+  cursor: pointer;
+  font-size: 20px;
 }

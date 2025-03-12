@@ -1,35 +1,30 @@
 <app-user-navigation-header></app-user-navigation-header>
-    <section class="content" *ngIf="event?.id">
-        <div class="image-content">
-            <img class="background-image" src="BACKGROUND.jpg" alt="background">
-        </div>
-        <div class="libreng-gupit-content">
-            <img [src]="event.imageUrl" class="libreng-gupit" alt="{{ event.title }}">
-        </div>
-        <div class="event-content">
-            <h1>{{ event.title }}</h1>
+<section class="content" *ngIf="event?.id">
+  <div class="image-content">
+    <img class="background-image" src="BACKGROUND.jpg" alt="background" />
+  </div>
+  <div class="libreng-gupit-content">
+    <img [src]="event.imageUrl" class="libreng-gupit" alt="{{ event.title }}" />
+  </div>
+  <div class="event-content">
+    <h1>{{ event.title }}</h1>
 
-            <div class="date_time">
-                <i class="fa fa-calendar"></i> Date And Time
-                <div class="date-time">
-                    {{ event.date }} | {{ event.time }}
-                </div>
-            </div>
+    <div class="date_time">
+      <i class="fa fa-calendar"></i> Date And Time
+      <div class="date-time">{{ event.date }} | {{ event.time }}</div>
+    </div>
 
-            <div class="location">
-                <i class="fa fa-location-arrow"></i> Location
-                <div class="loc">
-                    {{ event.location }}
-                </div>
-            </div>
+    <div class="location">
+      <i class="fa fa-location-arrow"></i> Location
+      <div class="loc">
+        {{ event.location }}
+      </div>
+    </div>
 
-            <div class="about_this_event">
-                <i class="fa fa-check-circle"></i> About This Event
-                <div class="about">
-                    {{ event.description }}<br>
-                </div>
-            </div>
-        </div>
-    </section>
-    <p *ngIf="!event?.id" class="loading-message">Loading event details...</p>
-
+    <div class="about_this_event">
+      <i class="fa fa-check-circle"></i> About This Event
+      <div class="about">{{ event.description }}<br /></div>
+    </div>
+  </div>
+</section>
+<p *ngIf="!event?.id" class="loading-message">Loading event details...</p>

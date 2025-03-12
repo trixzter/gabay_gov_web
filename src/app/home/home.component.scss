@@ -16,7 +16,6 @@
   text-transform: uppercase;
 }
 
-
 .events-section {
   max-width: 1000px;
   margin: 40px auto;
@@ -28,7 +27,6 @@
   font-weight: bold;
   margin-bottom: 20px;
 }
-
 
 .events-container {
   display: flex;
@@ -78,7 +76,6 @@
   margin: 5px 0;
 }
 
-
 .event-button {
   background-color: #2563eb;
   color: white;
@@ -95,7 +92,6 @@
   background-color: #1d4ed8;
 }
 
-
 footer {
   text-align: center;
   padding: 20px;
@@ -105,12 +101,10 @@ footer {
   margin-top: 40px;
 }
 
-
 .footer {
   background-color: #2563eb;
   padding: 37px;
   text-align: center;
-  
 }
 
 .footer-content {
@@ -120,13 +114,12 @@ footer {
   max-width: 1600px;
   margin: 0 auto;
   padding-bottom: 10px;
-  
 }
 
-.updates, .socials {
+.updates,
+.socials {
   flex: 1;
   text-align: left;
-  
 }
 
 .socials {

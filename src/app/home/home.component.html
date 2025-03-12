@@ -1,19 +1,28 @@
 <app-user-navigation-header></app-user-navigation-header>
 <div class="hero-section">
-  <img src="homelogo.png" alt="GabayGov Logo" class="hero-logo">
-  <h1>DISCOVER EVENTS WITH <br> GABAYGOV!</h1>
+  <img src="homelogo.png" alt="GabayGov Logo" class="hero-logo" />
+  <h1>
+    DISCOVER EVENTS WITH <br />
+    GABAYGOV!
+  </h1>
 </div>
 <div class="events-section">
   <h2 class="events-header">Latest Events</h2>
 
   <div class="events-container">
     <div class="event-card" *ngFor="let event of events.slice(0, 3)">
-      <img [src]="event.imageUrl" alt="{{ event.title }}" class="event-image">
-      
+      <img [src]="event.imageUrl" alt="{{ event.title }}" class="event-image" />
+
       <div class="event-details">
         <h3 class="event-title">{{ event.title }}</h3>
         <p class="event-date-time">{{ event.date }} | {{ event.time }}</p>
-        <button [routerLink]="['/user-event-details-page', event.id]" routerLinkActive="active" class="event-button">Event Details</button>
+        <button
+          [routerLink]="['/user-event-details-page', event.id]"
+          routerLinkActive="active"
+          class="event-button"
+        >
+          Event Details
+        </button>
       </div>
     </div>
   </div>
@@ -21,19 +30,35 @@
 
 <footer class="footer">
   <div class="footer-content">
-      <div class="updates">
-          <p><strong>Stay Updated</strong></p>
-          <p><i class="fa-solid fa-bell"></i> Subscribe to Event Notifications</p>
-          <p><i class="fa-solid fa-envelope"></i> Get updates on upcoming government-sponsored events in your area!</p>
-          <p><i class="fa-solid fa-hand-point-right"></i> <a href="#">Subscribe Now</a></p>
-
-      </div>
-      <div class="socials">
-          <p><i class="fa-brands fa-facebook"></i> Facebook: <a href="#">&#64;GabayGov</a></p>
-          <p><i class="fa-brands fa-instagram"></i> Instagram: <a href="#">&#64;GabayGov</a></p>
-          <p><i class="fa-brands fa-twitter"></i> Twitter/X: <a href="#"> &#64;GabayGov</a></p>
-      </div>
-      >
+    <div class="updates">
+      <p><strong>Stay Updated</strong></p>
+      <p><i class="fa-solid fa-bell"></i> Subscribe to Event Notifications</p>
+      <p>
+        <i class="fa-solid fa-envelope"></i> Get updates on upcoming
+        government-sponsored events in your area!
+      </p>
+      <p>
+        <i class="fa-solid fa-hand-point-right"></i>
+        <a href="#">Subscribe Now</a>
+      </p>
+    </div>
+    <div class="socials">
+      <p>
+        <i class="fa-brands fa-facebook"></i> Facebook:
+        <a href="#">&#64;GabayGov</a>
+      </p>
+      <p>
+        <i class="fa-brands fa-instagram"></i> Instagram:
+        <a href="#">&#64;GabayGov</a>
+      </p>
+      <p>
+        <i class="fa-brands fa-twitter"></i> Twitter/X:
+        <a href="#"> &#64;GabayGov</a>
+      </p>
+    </div>
+    >
   </div>
-  <p class="copyright">© 2025 GabayGov. All rights reserved. | Powered by TEAM LASALLE </p>
+  <p class="copyright">
+    © 2025 GabayGov. All rights reserved. | Powered by TEAM LASALLE
+  </p>
 </footer>
