@@ -5,6 +5,7 @@
 </head>
 
 <body>
+  <app-organizer-navigation-header></app-organizer-navigation-header>
     <section *ngFor="let event of events" class="event-details">
       <div class="event-container">
         <img class="event-image" [src]="event.imageUrl" alt="{{ event.title }}">

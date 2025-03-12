@@ -1,12 +1,26 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <nav class="navbar">
-    <div class="logo">
-      <img src="gabaylogo.png" alt="GabayGov Logo" />
-      <span>GabayGov</span>
+  <div class="logo-new">
+  <div class="logo">
+    <img src="gabaylogo.png" alt="GabayGov Logo" />
+    <span>GabayGov</span>
+  </div>
+  <h4>Admin Dashboard</h4>
+</div>
+  <div class="nav-links">
+    <a routerLink="/events">Events</a>
+    <a routerLink="/create-event">Create Event</a>
+  </div>
+  <div class="menu-container">
+    <div class="menu-icon" (click)="toggleDropdown()">&#9776;</div>
+    <div class="dropdown-menu" *ngIf="isDropdownOpen">
+      <a routerLink="/update-profile">
+        <span class="fa fa-user"> User Profile</span> 
+      </a>
+      <a (click)="logout()">
+        <span class="fa fa-sign-out"> Logout</span> 
+      </a>
     </div>
-    <div class="nav-links">
-      <a routerLink="/">Home</a>
-      <a routerLink="/events">Events</a>
-      <a routerLink="/create-event">Create Event</a>
-    </div>
-    <div class="menu-icon">&#9776;</div>
-  </nav>
+  </div>
+</nav>
