@@ -1,17 +1,18 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { FormsModule, NgModel } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
+import { provideHttpClient, HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-register-page',
   standalone: true,
+  providers: [],
   imports: [
     FormsModule, 
     RouterLink
   ],
   templateUrl: './register-page.component.html',
-  styleUrl: './register-page.component.scss'
-  
+  styleUrls: ['./register-page.component.scss']
 })
 export class RegisterPageComponent {
   firstName: string = '';
@@ -19,13 +20,32 @@ export class RegisterPageComponent {
   email: string = '';
   username: string = '';
   password: string = '';
+  governmentId: string = '';
+
+  constructor(private http: HttpClient, private router: Router) {}
 
   registerUser() {
-    console.log("Registering User...");
-    console.log("First Name:", this.firstName);
-    console.log("Last Name:", this.lastName);
-    console.log("Email:", this.email);
-    console.log("Username:", this.username);
-    console.log("Password:", this.password);
+    const user = {
+      first_name: this.firstName,
+      last_name: this.lastName,
+      email: this.email,
+      username: this.username,
+      password: this.password,
+      government_id: this.governmentId
+    };
+
+    console.log('Sending user data:', user);
+
+    this.http.post('http://127.0.0.1:5000/users/register', user).subscribe({
+      next: (res) => {
+        console.log('Registration successful:', res);
+        alert('Registration successful!');
+        this.router.navigate(['/login']); 
+      },
+      error: (err) => {
+        console.error('Registration failed:', err);
+        alert('Registration failed. Please try again.');
+      }
+    });
   }
 }
