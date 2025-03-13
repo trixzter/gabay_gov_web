@@ -17,8 +17,6 @@ export class EventService {
     return this.http.post(`${baseUrl}/events`, event);
   }
 
-  
-
   getAllEvents(title?: string, location?: string): Observable<EventModel[]> {
     let params = new HttpParams();
     if (title) {
@@ -40,10 +38,6 @@ export class EventService {
 
   deleteEvent(id: number): Observable<any> {
     return this.http.delete(`${baseUrl}/events/${id}`);
-  }
-
-  getEvents(): Observable<EventModel[]> {
-    return this.http.get<EventModel[]>(`${baseUrl}/events`);
   }
 
   getLocalEventById(id: number): Observable<EventModel | undefined> {
