@@ -3,7 +3,7 @@ import { Observable, of } from 'rxjs';
 import { EventModel } from '../../models/event.model';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
-const baseUrl = 'http://localhost:5000';
+const baseUrl = 'http://127.0.0.1:5000';
 
 @Injectable({
   providedIn: 'root',
@@ -38,14 +38,5 @@ export class EventService {
 
   deleteEvent(id: number): Observable<any> {
     return this.http.delete(`${baseUrl}/events/${id}`);
-  }
-
-  getEvents(): Observable<EventModel[]> {
-    return of(this.events);
-  }
-
-  getLocalEventById(id: number): Observable<EventModel | undefined> {
-    const event = this.events.find((event) => event.id === id);
-    return of(event);
   }
 }
