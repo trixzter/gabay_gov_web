@@ -5,7 +5,6 @@ import { EventService } from '../services/events/event.service';
 import { EventModel } from '../models/event.model';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-user-event-details-page',
@@ -31,20 +30,16 @@ export class UserEventDetailsPageComponent implements OnInit {
     const eventId = Number(this.route.snapshot.paramMap.get('id'));
     this.getEventDetails(eventId);
   }
-
+  
   getEventDetails(eventId: number): void {
-    this.eventService.getEvent(eventId)
-      .pipe(
-        catchError(error => {
-          this.error = error.message || 'Failed to load event details';
-          console.error('Error fetching event details:', error);
-          return of(null); 
-        })
-      )
-      .subscribe((data) => {
+    this.eventService.getEvent(eventId).subscribe({
+      next: (data) => {
         if (data) {
           this.event = data;
+          console.log('Event details loaded:', this.event);
         }
-      });
+      },
+      error: (err) => console.error('Error loading event details:', err)
+    });
   }
 }
