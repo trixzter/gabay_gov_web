@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EventService } from '../services/event.service';
+import { EventService } from '../services/events/event.service';
 import { ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { EventModel } from '../models/event.model';
@@ -11,17 +11,20 @@ import { OrganizerNavigationHeaderComponent } from '../organizer-navigation-head
   standalone: true,
   imports: [
     CommonModule, 
-    FormsModule,
+    FormsModule, 
     OrganizerNavigationHeaderComponent
   ],
   templateUrl: './edit-event.component.html',
-  styleUrls: ['./edit-event.component.scss']
+  styleUrls: ['./edit-event.component.scss'],
 })
 export class EditEventComponent implements OnInit {
-  isDeletePopupVisible: boolean = false;  
-  event: EventModel = {} as EventModel;  
+  isDeletePopupVisible: boolean = false;
+  event: EventModel = {} as EventModel;
 
-  constructor(private eventService: EventService, private route: ActivatedRoute) {}
+  constructor(
+    private eventService: EventService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     const eventId = Number(this.route.snapshot.paramMap.get('id'));
@@ -29,7 +32,7 @@ export class EditEventComponent implements OnInit {
   }
 
   getEventDetails(eventId: number): void {
-    this.eventService.getEventById(eventId).subscribe((data) => {
+    this.eventService.getEvent(eventId).subscribe((data) => {
       if (data) {
         this.event = data;
       }
@@ -45,7 +48,7 @@ export class EditEventComponent implements OnInit {
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
-        if (this.event) { 
+        if (this.event) {
           this.event.imageUrl = reader.result as string;
         }
       };

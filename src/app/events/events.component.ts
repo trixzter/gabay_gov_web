@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EventModel } from '../models/event.model';
 import { RouterLink } from '@angular/router';
-import { EventService } from '../services/event.service';
+import { EventService } from '../services/events/event.service';
 import { OrganizerNavigationHeaderComponent } from '../organizer-navigation-header/organizer-navigation-header.component';
 
 @Component({
@@ -14,18 +14,16 @@ import { OrganizerNavigationHeaderComponent } from '../organizer-navigation-head
     OrganizerNavigationHeaderComponent
   ],
   templateUrl: './events.component.html',
-  styleUrl: './events.component.scss'
+  styleUrl: './events.component.scss',
 })
-export class EventsComponent implements OnInit{
+export class EventsComponent implements OnInit {
   events: EventModel[] = [];
 
   constructor(private eventService: EventService) {}
 
   ngOnInit() {
-    this.eventService.getEvents().subscribe(
-      (events) => {
-        this.events = events;
-      }
-    );
+    this.eventService.getEvents().subscribe((events) => {
+      this.events = events;
+    });
   }
 }

@@ -4,12 +4,8 @@ import { OrganizerNavigationHeaderComponent } from '../organizer-navigation-head
 @Component({
   selector: 'app-create-event',
   standalone: true,
-  imports: [
-    OrganizerNavigationHeaderComponent
-  ],
+  imports: [OrganizerNavigationHeaderComponent],
   templateUrl: './create-event.component.html',
-  styleUrl: './create-event.component.scss'
+  styleUrl: './create-event.component.scss',
 })
-export class CreateEventComponent {
-
-}
+export class CreateEventComponent {}
