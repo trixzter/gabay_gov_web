@@ -34,10 +34,8 @@ export class UserEventDetailsPageComponent implements OnInit {
   getEventDetails(eventId: number): void {
     this.eventService.getEvent(eventId).subscribe({
       next: (data) => {
-        if (data) {
-          this.event = data;
-          console.log('Event details loaded:', this.event);
-        }
+        this.event = data; 
+        console.log('Event details loaded:', this.event);
       },
       error: (err) => console.error('Error loading event details:', err)
     });
