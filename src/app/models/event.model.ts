@@ -6,4 +6,5 @@ export interface EventModel {
   location?: string;
   description?: string;
   imageUrl?: string;
+  published?: boolean;
 }

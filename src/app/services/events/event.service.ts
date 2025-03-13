@@ -3,7 +3,7 @@ import { Observable, of } from 'rxjs';
 import { EventModel } from '../../models/event.model';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
-const baseUrl = 'http://localhost:5000';
+const baseUrl = 'http://127.0.0.1:5000';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +14,7 @@ export class EventService {
   constructor(private http: HttpClient) {}
 
   createEvent(event: EventModel): Observable<any> {
-    return this.http.post(`${baseUrl}/events`, event);
+    return this.http.post(`${baseUrl}/events/`, event);
   }
 
   getAllEvents(title?: string, location?: string): Observable<EventModel[]> {
