@@ -5,6 +5,7 @@ import { EventService } from '../services/events/event.service';
 import { EventModel } from '../models/event.model';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-user-event-details-page',
@@ -19,6 +20,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserEventDetailsPageComponent implements OnInit {
   event: EventModel = {} as EventModel;
+  error: any;
 
   constructor(
     private eventService: EventService,
@@ -31,10 +33,18 @@ export class UserEventDetailsPageComponent implements OnInit {
   }
 
   getEventDetails(eventId: number): void {
-    this.eventService.getEvent(eventId).subscribe((data) => {
-      if (data) {
-        this.event = data;
-      }
-    });
+    this.eventService.getEvent(eventId)
+      .pipe(
+        catchError(error => {
+          this.error = error.message || 'Failed to load event details';
+          console.error('Error fetching event details:', error);
+          return of(null); 
+        })
+      )
+      .subscribe((data) => {
+        if (data) {
+          this.event = data;
+        }
+      });
   }
 }
