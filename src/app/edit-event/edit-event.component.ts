@@ -49,7 +49,7 @@ export class EditEventComponent implements OnInit {
       const reader = new FileReader();
       reader.onload = () => {
         if (this.event) {
-          this.event.imageUrl = reader.result as string;
+          this.event.photo = reader.result as string;
         }
       };
       reader.readAsDataURL(file);

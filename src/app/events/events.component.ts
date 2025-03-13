@@ -14,16 +14,18 @@ import { OrganizerNavigationHeaderComponent } from '../organizer-navigation-head
     OrganizerNavigationHeaderComponent
   ],
   templateUrl: './events.component.html',
-  styleUrl: './events.component.scss',
+  styleUrl: './events.component.scss'
 })
-export class EventsComponent implements OnInit {
+export class EventsComponent implements OnInit{
   events: EventModel[] = [];
 
   constructor(private eventService: EventService) {}
 
   ngOnInit() {
-    this.eventService.getEvents().subscribe((events) => {
-      this.events = events;
-    });
+    this.eventService.getEvents().subscribe(
+      (events) => {
+        this.events = events;
+      }
+    );
   }
 }
