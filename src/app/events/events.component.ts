@@ -22,10 +22,12 @@ export class EventsComponent implements OnInit{
   constructor(private eventService: EventService) {}
 
   ngOnInit() {
-    this.eventService.getEvents().subscribe(
-      (events) => {
+    this.eventService.getAllEvents().subscribe({
+      next: (events) => {
         this.events = events;
-      }
-    );
+        console.log('Events loaded:', this.events); 
+      },
+      error: (err) => console.error('Error loading events:', err),
+    });
   }
 }
