@@ -20,7 +20,7 @@ import { OrganizerNavigationHeaderComponent } from '../organizer-navigation-head
 export class EditEventComponent implements OnInit {
   isDeletePopupVisible: boolean = false;
   event: EventModel = {} as EventModel;
-  eventId!: number;
+  eventId: number = null as any;
 
   constructor(
     private eventService: EventService,
@@ -36,9 +36,7 @@ export class EditEventComponent implements OnInit {
   getEventDetails(): void {
     this.eventService.getEvent(this.eventId).subscribe({
       next: (data) => {
-        if (data) {
-          this.event = data;
-        }
+        this.event = data; 
       },
       error: (err) => console.error('Error fetching event:', err),
     });
@@ -57,7 +55,7 @@ export class EditEventComponent implements OnInit {
       };
       reader.readAsDataURL(file);
     }
-  } //not working pa po, not saving pa po sa db
+  } 
 
   saveEvent(): void {
     this.eventService.updateEvent(this.eventId, this.event).subscribe({
