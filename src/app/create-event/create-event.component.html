@@ -26,6 +26,10 @@
       type="text"
       placeholder="Enter Title: Example - Libreng Gupit "
       class="enter-title"
+      id="title"
+      required
+      [(ngModel)]="eventModel.title"
+      name="title" 
     />
     <p><i class="fa fa-calendar"></i>Date and Time</p>
     <div class="date-time">
@@ -33,11 +37,19 @@
         type="text"
         placeholder="Input the Date Example - January 1, 2025 "
         class="date-loc"
+        id="date"
+        required
+        [(ngModel)]="eventModel.date"
+        name="date" 
       />
       <input
         type="text"
         placeholder="Input the Time: Example - 8:AM to 5:00 PM "
         class="date-loc"
+        id="time"
+        required
+        [(ngModel)]="eventModel.time"
+        name="time" 
       />
     </div>
     <p><i class="fa fa-location-arrow"></i>Location</p>
@@ -45,6 +57,10 @@
       type="text"
       placeholder="Input the Location: Example - Bugtong, Lipa, Courth "
       class="date-loc"
+      id="location"
+      required
+      [(ngModel)]="eventModel.location"
+      name="location" 
     />
     <p><i class="fa fa-check-circle"></i>About This Event</p>
     <input
@@ -53,11 +69,19 @@
         babalik Eskwela! Libreng GUPIT! handog sa inyo ng Sangguniang Kabataan!  
         sa Sampalucan.  "
       class="about-input"
+      id="description"
+      required
+      [(ngModel)]="eventModel.description"
+      name="description"
     />
   </div>
 </div>
 <div class="save-content">
   <div class="save-btn">
-    <button>SAVE</button>
+    <form (ngSubmit)="saveEvent()" #eventForm="ngForm">
+      <button type="submit">SAVE</button>
+    </form>
   </div>
 </div>
+
+
