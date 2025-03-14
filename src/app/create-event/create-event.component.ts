@@ -25,7 +25,7 @@ export class CreateEventComponent implements OnInit{
   }
 
   saveEvent(): void {
-    const data = {
+    const eventModel = {
       title: this.eventModel.title,
       date: this.eventModel.date,
       time: this.eventModel.time,
@@ -34,7 +34,7 @@ export class CreateEventComponent implements OnInit{
       photo: this.eventModel.photo || ' ',
     };
 
-  this.eventService.createEvent(data).subscribe({
+  this.eventService.createEvent(eventModel).subscribe({
     next: (response) => {
       console.log(response);
       this.submitted = true;

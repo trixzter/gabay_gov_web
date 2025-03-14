@@ -14,7 +14,7 @@ export class EventService {
   constructor(private http: HttpClient) {}
 
   createEvent(event: EventModel): Observable<any> {
-    return this.http.post(`${baseUrl}/events/`, event);
+    return this.http.post(`${baseUrl}/events`, event);
   }
 
   getAllEvents(title?: string, location?: string): Observable<EventModel[]> {
