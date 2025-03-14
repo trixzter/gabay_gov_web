@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EventService } from '../services/events/event.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { EventModel } from '../models/event.model';
 import { OrganizerNavigationHeaderComponent } from '../organizer-navigation-header/organizer-navigation-header.component';
@@ -10,8 +10,8 @@ import { OrganizerNavigationHeaderComponent } from '../organizer-navigation-head
   selector: 'app-edit-event',
   standalone: true,
   imports: [
-    CommonModule, 
-    FormsModule, 
+    CommonModule,
+    FormsModule,
     OrganizerNavigationHeaderComponent
   ],
   templateUrl: './edit-event.component.html',
@@ -20,22 +20,27 @@ import { OrganizerNavigationHeaderComponent } from '../organizer-navigation-head
 export class EditEventComponent implements OnInit {
   isDeletePopupVisible: boolean = false;
   event: EventModel = {} as EventModel;
+  eventId!: number;
 
   constructor(
     private eventService: EventService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
-    const eventId = Number(this.route.snapshot.paramMap.get('id'));
-    this.getEventDetails(eventId);
+    this.eventId = Number(this.route.snapshot.paramMap.get('id'));
+    this.getEventDetails();
   }
 
-  getEventDetails(eventId: number): void {
-    this.eventService.getEvent(eventId).subscribe((data) => {
-      if (data) {
-        this.event = data;
-      }
+  getEventDetails(): void {
+    this.eventService.getEvent(this.eventId).subscribe({
+      next: (data) => {
+        if (data) {
+          this.event = data;
+        }
+      },
+      error: (err) => console.error('Error fetching event:', err),
     });
   }
 
@@ -48,16 +53,20 @@ export class EditEventComponent implements OnInit {
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
-        if (this.event) {
-          this.event.photo = reader.result as string;
-        }
+        this.event.photo = reader.result as string;
       };
       reader.readAsDataURL(file);
     }
-  }
+  } //not working pa po, not saving pa po sa db
 
   saveEvent(): void {
-    alert('Event saved!');
+    this.eventService.updateEvent(this.eventId, this.event).subscribe({
+      next: () => {
+        alert('Event updated successfully!');
+        this.router.navigate(['/events']);
+      },
+      error: (err) => console.error('Error updating event:', err),
+    });
   }
 
   showDeleteConfirmation(): void {
@@ -69,7 +78,13 @@ export class EditEventComponent implements OnInit {
   }
 
   deleteEvent(): void {
-    alert('Event deleted!');
-    this.isDeletePopupVisible = false;
+    this.eventService.deleteEvent(this.eventId).subscribe({
+      next: () => {
+        alert('Event deleted successfully!');
+        this.isDeletePopupVisible = false;
+        this.router.navigate(['/events']);
+      },
+      error: (err) => console.error('Error deleting event:', err),
+    });
   }
 }
