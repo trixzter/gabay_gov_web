@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { OrganizerNavigationHeaderComponent } from '../organizer-navigation-header/organizer-navigation-header.component';
 import { EventService } from '../services/events/event.service';
+
 import { EventModel } from '../models/event.model';
 import { FormsModule } from '@angular/forms';
 import { Router} from '@angular/router';
+
+
+
 @Component({
   selector: 'app-create-event',
   standalone: true,

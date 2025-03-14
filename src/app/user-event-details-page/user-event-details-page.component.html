@@ -28,3 +28,6 @@
   </div>
 </section>
 <p *ngIf="!event?.id" class="loading-message">Loading event details...</p>
+<div *ngIf="error" class="error-message">
+  {{ error }}
+</div>

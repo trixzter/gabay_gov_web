@@ -19,6 +19,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserEventDetailsPageComponent implements OnInit {
   event: EventModel = {} as EventModel;
+  error: any;
 
   constructor(
     private eventService: EventService,
@@ -29,12 +30,14 @@ export class UserEventDetailsPageComponent implements OnInit {
     const eventId = Number(this.route.snapshot.paramMap.get('id'));
     this.getEventDetails(eventId);
   }
-
+  
   getEventDetails(eventId: number): void {
-    this.eventService.getEvent(eventId).subscribe((data) => {
-      if (data) {
-        this.event = data;
-      }
+    this.eventService.getEvent(eventId).subscribe({
+      next: (data) => {
+        this.event = data; 
+        console.log('Event details loaded:', this.event);
+      },
+      error: (err) => console.error('Error loading event details:', err)
     });
   }
 }

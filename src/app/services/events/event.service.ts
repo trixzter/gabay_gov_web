@@ -39,13 +39,4 @@ export class EventService {
   deleteEvent(id: number): Observable<any> {
     return this.http.delete(`${baseUrl}/events/${id}`);
   }
-
-  getEvents(): Observable<EventModel[]> {
-    return of(this.events);
-  }
-
-  getLocalEventById(id: number): Observable<EventModel | undefined> {
-    const event = this.events.find((event) => event.id === id);
-    return of(event);
-  }
 }
