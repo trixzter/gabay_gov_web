@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { EventModel } from '../../models/event.model';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { BASE_URL } from '../../app.constants';
 
-const baseUrl = 'http://127.0.0.1:5000';
+const baseUrl = BASE_URL;
 
 @Injectable({
   providedIn: 'root',

@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { UserModel } from '../../models/user.model';
 import { HttpClient } from '@angular/common/http';
+import { BASE_URL } from '../../app.constants';
 
-const baseUrl = 'http://localhost:5000';
+const baseUrl = BASE_URL;
 
 @Injectable({
   providedIn: 'root'
