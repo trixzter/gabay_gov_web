@@ -2,30 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { OrganizerNavigationHeaderComponent } from '../organizer-navigation-header/organizer-navigation-header.component';
 import { EventModel } from '../models/event.model';
 import { EventService } from '../services/events/event.service';
-// import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
-// BrowserModule,
+import { Router} from '@angular/router';
 @Component({
   selector: 'app-create-event',
   standalone: true,
-  imports: [OrganizerNavigationHeaderComponent,FormsModule, RouterLink],
+  imports: [
+    OrganizerNavigationHeaderComponent, 
+    FormsModule,
+  ],
   templateUrl: './create-event.component.html',
   styleUrl: './create-event.component.scss',
 })
 export class CreateEventComponent implements OnInit{
-  eventModel: EventModel = {
-    title: '',
-    date: '',
-    time: '',
-    location: '',
-    description: '',
-    imageUrl: '',
-    published: false,
-  };
+  eventModel: EventModel = {} as EventModel;
   submitted = false;
 
-  constructor(private eventService: EventService) {}
+  constructor(private eventService: EventService, private router: Router) {}
 
   ngOnInit(): void {
     
@@ -38,30 +31,18 @@ export class CreateEventComponent implements OnInit{
       time: this.eventModel.time,
       location: this.eventModel.location,
       description: this.eventModel.description,
-      photo: this.eventModel.imageUrl || ' ',
+      photo: this.eventModel.photo || ' ',
     };
 
   this.eventService.createEvent(data).subscribe({
     next: (response) => {
       console.log(response);
       this.submitted = true;
+      this.router.navigate(['/events'])
     },
     error: (error: any) => {
       console.log(error);
     }
   });
-}
-
-  newEvent(): void {
-    this.submitted = false;
-    this.eventModel = {
-      title: '',
-      date: '',
-      time: '',
-      location: '',
-      description: '',
-      imageUrl: '',
-      published: false,
-    };
   }
 }
