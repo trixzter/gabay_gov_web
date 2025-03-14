@@ -22,7 +22,7 @@ export class LoginComponent {
   constructor(private router: Router, private userService: UserService) {}
 
   loginUser() {
-    const credentials = {
+    const credentials: UserModel = {
       username: this.username,
       password: this.password
     };
