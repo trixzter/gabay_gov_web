@@ -46,15 +46,6 @@ export class EditEventComponent implements OnInit {
     document.getElementById('fileInput')?.click();
   }
 
-  onFileSelected(event: any): void {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => 
-      reader.readAsDataURL(file);
-    }
-  } 
-
   saveEvent(): void {
     this.eventService.updateEvent(this.eventId, this.event).subscribe({
       next: () => {
