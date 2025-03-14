@@ -3,8 +3,6 @@ import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../services/users/user.service'
-
-
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -23,14 +21,9 @@ export class LoginComponent {
   constructor(private router: Router, private userService: UserService) {}
 
   loginUser() {
-    interface User {
-      username: string;
-      password: string;
-    }
-    const credentials: User = { username: this.username, password: this.password };
+    const UserModel= { username: this.username, password: this.password };
 
-
-    this.userService.login(credentials).subscribe({ 
+    this.userService.login(UserModel).subscribe({ 
       next: (res: any) => {
         console.log('Login successful:', res);
         
