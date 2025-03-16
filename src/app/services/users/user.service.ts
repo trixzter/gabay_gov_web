@@ -18,8 +18,13 @@ private users: UserModel[] = [];
     return this.http.post(`${BASE_URL}/users/register`, user);
   }
 
+
   login(credentials: { username: string; password: string }): Observable<any> {
     return this.http.post(`${BASE_URL}/users/login`, credentials);
+
+  login(user: UserModel): Observable<any> {
+    return this.http.post(`${baseUrl}/users/login`, user);
+
   }
 
   updateUser(id: number, user: UserModel): Observable<any> {

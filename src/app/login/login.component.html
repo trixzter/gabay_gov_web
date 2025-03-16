@@ -3,13 +3,19 @@
     <h2>Government Login</h2>
     <img src="gabaylogo.png" alt="Government Logo" class="logo" />
 
-    <input type="text" placeholder="Username" class="input-box" />
-    <input type="password" placeholder="Password" class="input-box" />
-
-    <button routerLink="/events" routerLinkActive="active" class="login-button">
-      Login
-    </button>
-
+    <input
+      type="text"
+      placeholder="Username"
+      class="input-box"
+      [(ngModel)]="username"
+    />
+    <input
+      type="password"
+      placeholder="Password"
+      class="input-box"
+      [(ngModel)]="password"
+    />
+    <button (click)="loginUser()" class="login-button">Login</button>
     <div class="create-password-account">
       <a routerLink="/register-page" routerLinkActive="active"
         >Create Account</a
