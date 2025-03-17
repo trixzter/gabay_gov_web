@@ -2,11 +2,8 @@
 <div class="wrapper">
   <div class="upload-container">
     <div class="upload-box">
-      <img
-      [src]="imagePreview ? imagePreview : (eventModel.photo ? BASE_URL + '/assets/' + eventModel.photo : 'upload-picture.png')"
-      alt="Event Image"
-      class="upload-image"
-      />
+      <img [src]="getEventImage()" alt="Event Image" 
+      class="upload-image" />
       <input
         type="file"
         id="fileInput"

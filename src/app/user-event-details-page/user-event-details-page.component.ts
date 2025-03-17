@@ -21,7 +21,6 @@ import { BASE_URL } from '../app.constants';
 export class UserEventDetailsPageComponent implements OnInit {
   event: EventModel = {} as EventModel;
   error: any;
-  BASE_URL = BASE_URL;
 
   constructor(
     private eventService: EventService,
@@ -31,6 +30,10 @@ export class UserEventDetailsPageComponent implements OnInit {
   ngOnInit(): void {
     const eventId = Number(this.route.snapshot.paramMap.get('id'));
     this.getEventDetails(eventId);
+  }
+
+  getEventImageSrc(event: EventModel): string {
+    return event && event.photo ? `${BASE_URL}/assets/${event.photo}` : 'assets/upload-picture.png';
   }
   
   getEventDetails(eventId: number): void {

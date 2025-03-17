@@ -25,8 +25,7 @@ export class CreateEventComponent implements OnInit {
   selectedFile: File | null = null;
   imagePreview: string | null = null;
   isUploading = false;
-  BASE_URL = BASE_URL;
-
+ 
   constructor(
     private eventService: EventService, 
     private assetService: AssetService,
@@ -34,6 +33,16 @@ export class CreateEventComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {}
+
+  getEventImage(): string {
+    if (this.imagePreview) {
+      return this.imagePreview;
+    }
+    if (this.eventModel.photo) {
+      return `${BASE_URL}/assets/${this.eventModel.photo}`;
+    }
+    return 'upload-picture.png';
+  }
 
   triggerFileInput(): void {
     const fileInput = document.getElementById('fileInput') as HTMLInputElement;
@@ -57,7 +66,6 @@ export class CreateEventComponent implements OnInit {
       this.uploadFile();
     }
   }
-
 
   uploadFile(): void {
     if (!this.selectedFile) return;
@@ -83,25 +91,18 @@ export class CreateEventComponent implements OnInit {
   }
 
   saveEvent(): void {
-    const eventModel: EventModel = {
+    const eventData: EventModel = {
       title: this.eventModel.title,
       date: this.eventModel.date,
       time: this.eventModel.time,
       location: this.eventModel.location,
       description: this.eventModel.description,
-      photo: this.eventModel.photo || ' ',
+      photo: this.eventModel.photo || ' ', 
     };
-
-
-  saveEvent(): void {
-    console.log('Save event called with data:', this.eventModel);
-    
-    if (this.isUploading) {
-      alert('Please wait for image upload to complete');
-      return;
-    }
-    
-    this.eventService.createEvent(this.eventModel).subscribe({
+  
+    console.log('Sending event data:', eventData);
+  
+    this.eventService.createEvent(eventData).subscribe({
       next: (response) => {
         console.log('Event created successfully:', response);
         this.submitted = true;

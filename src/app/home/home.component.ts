@@ -19,9 +19,12 @@ import { BASE_URL } from '../app.constants';
 })
 export class HomeComponent {
   events: EventModel[] = [];
-  BASE_URL = BASE_URL;
 
   constructor(private eventService: EventService) {}
+
+  getEventImageSrc(event: EventModel): string {
+    return event && event.photo ? `${BASE_URL}/assets/${event.photo}` : 'assets/upload-picture.png';
+  }
 
   ngOnInit() {
     this.eventService.getAllEvents().subscribe({

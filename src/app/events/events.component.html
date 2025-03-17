@@ -1,11 +1,7 @@
 <app-organizer-navigation-header></app-organizer-navigation-header>
 <section *ngFor="let event of events" class="event-details">
   <div class="event-container">
-    <img
-      [src]="event.photo ? BASE_URL + '/assets/' + event.photo : 'assets/upload-picture.png'"
-      alt="Event Image"
-      class="event-image"
-    />
+    <img [src]="getEventImageSrc(event)" alt="Event Image" class="event-image" />
 
     <div class="event-content">
       <h1 class="event-title">{{ event.title }}</h1>

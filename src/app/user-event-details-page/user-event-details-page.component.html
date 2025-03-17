@@ -4,11 +4,7 @@
     <img class="background-image" src="BACKGROUND.jpg" alt="background" />
   </div>
   <div class="libreng-gupit-content">
-    <img
-      [src]="event.photo ? BASE_URL + '/assets/' + event.photo : 'assets/upload-picture.png'"
-      alt="Event Image"
-      class="event-image"
-    />
+    <img [src]="getEventImageSrc(event)" alt="Event Image" class="event-image" />
   </div>
   <div class="event-content">
     <h1>{{ event.title }}</h1>
