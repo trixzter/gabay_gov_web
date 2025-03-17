@@ -29,7 +29,7 @@ export class CreateEventComponent implements OnInit{
   }
 
   saveEvent(): void {
-    const eventModel = {
+    const eventModel: EventModel = {
       title: this.eventModel.title,
       date: this.eventModel.date,
       time: this.eventModel.time,

@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { AssetModel } from '../../models/asset.model';
 import { HttpClient } from '@angular/common/http';
+import { BASE_URL } from '../../app.constants';
 
-const baseUrl = 'http://localhost:5000';
 
 @Injectable({
   providedIn: 'root'
@@ -15,10 +14,10 @@ export class AssetService {
   uploadFile(file: File): Observable<any> {
     const formData = new FormData();
     formData.append('file', file);
-    return this.http.post(`${baseUrl}/`, formData);
+    return this.http.post(`${BASE_URL}/`, formData);
   }
 
   downloadFile(filename: string): Observable<Blob> {
-    return this.http.get(`${baseUrl}/${filename}`, { responseType: 'blob' });
+    return this.http.get(`${BASE_URL}/${filename}`, { responseType: 'blob' });
   }
 }
