@@ -1,8 +1,8 @@
 <app-organizer-navigation-header></app-organizer-navigation-header>
-<app-page-loading-indicators *ngIf="isLoading"></app-page-loading-indicators>
-<section [ngClass]="{ 'loading-background': isLoading }">
+<app-page-loading-indicators *ngIf="loadingState == STATE.ON_GOING"></app-page-loading-indicators>
+<section [ngClass]="{ 'loading-background': loadingState === STATE.ON_GOING}">
   
-  <ng-container *ngIf="!isLoading && events.length > 0">
+  <ng-container *ngIf="loadingState === STATE.SUCCESS && events.length > 0">
     <section *ngFor="let event of events" class="event-details">
       <div class="event-container">
         <img class="event-image" [src]="event.photo" alt="{{ event.title }}" />
@@ -22,11 +22,11 @@
     <hr />
   </ng-container>
 
-  <p *ngIf="!isLoading && error" class="error-message">
-    {{ error }}
+  <p *ngIf="loadingState === STATE.ERROR && errorMessage" class="error-message">
+    {{ errorMessage }}
   </p>
 
-  <p *ngIf="!isLoading && events.length === 0" class="no-events-message">
+  <p *ngIf="loadingState === STATE.SUCCESS && events.length === 0" class="no-events-message">
     No events available.
   </p>
 

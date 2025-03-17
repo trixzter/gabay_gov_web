@@ -10,15 +10,15 @@
 
 <div class="events-section">
   <h2 class="events-header">Latest Events</h2>
-  <div *ngIf="loadingState === 'loading'">
-    <app-page-loading-indicators message="Loading latest events..."></app-page-loading-indicators>
+  <div *ngIf="loadingstate === STATE.ON_GOING">
+    <app-page-loading-indicators></app-page-loading-indicators>
   </div>
 
-  <div *ngIf="loadingState === 'error'" class="error-message">
+  <div *ngIf="loadingstate === STATE.ERROR" class="error-message">
     <p>{{ errorMessage }}</p>
   </div>
 
-  <div class="events-container" *ngIf="loadingState === 'success'">
+  <div class="events-container" *ngIf="loadingstate === STATE.SUCCESS">
     <div class="event-card" *ngFor="let event of events.slice(0, 3)">
       <img [src]="event.photo" alt="{{ event.title }}" class="event-image" />
       <div class="event-details">

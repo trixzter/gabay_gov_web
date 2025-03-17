@@ -6,6 +6,7 @@ import { EventModel } from '../models/event.model';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { PageLoadingIndicatorsComponent } from '../page-loading-indicators/page-loading-indicators.component';
+import { STATE } from '../app.constants';
 
 @Component({
   selector: 'app-user-event-details-page',
@@ -20,9 +21,10 @@ import { PageLoadingIndicatorsComponent } from '../page-loading-indicators/page-
   styleUrl: './user-event-details-page.component.scss',
 })
 export class UserEventDetailsPageComponent implements OnInit {
+  STATE = STATE;
   event?: EventModel; 
-  error: any;
-  isLoading: boolean = true; 
+  errorMessage: string = '';
+  loadingState = STATE.ON_GOING; 
 
   constructor(
     private eventService: EventService,
@@ -30,25 +32,31 @@ export class UserEventDetailsPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const eventId = Number(this.route.snapshot.paramMap.get('id'));
 
+    this.route.paramMap.subscribe((params) => {
+      const eventId = Number(params.get('id'));
 
-    setTimeout(() => {
-      this.getEventDetails(eventId);
-    }, 1500);
+      if (!isNaN(eventId) && eventId > 0) {
+        this.getEventDetails(eventId);
+      } else {
+        this.loadingState = STATE.ERROR;
+        this.errorMessage = 'Invalid event ID.';
+      }
+    });
   }
 
   getEventDetails(eventId: number): void {
+    this.loadingState = STATE.ON_GOING;
     this.eventService.getEvent(eventId).subscribe({
       next: (data) => {
         this.event = data;
-        this.isLoading = false; 
+        this.loadingState = STATE.SUCCESS; 
         console.log('Event details loaded:', this.event);
       },
       error: (err) => {
         console.error('Error loading event details:', err);
-        this.error = "Failed to load event details.";
-        this.isLoading = false;
+        this.errorMessage = "Failed to load event details.";
+        this.loadingState = STATE.ERROR;
       }
     });
   }

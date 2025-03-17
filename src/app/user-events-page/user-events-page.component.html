@@ -1,14 +1,14 @@
 <app-user-navigation-header></app-user-navigation-header>
 
-<div *ngIf="loadingState === 'loading'">
-  <app-page-loading-indicators message="Fetching events..."></app-page-loading-indicators>
+<div *ngIf="loadingState === STATE.ON_GOING">
+  <app-page-loading-indicators></app-page-loading-indicators>
 </div>
 
-<div *ngIf="loadingState === 'error'" class="error-message">
+<div *ngIf="loadingState === STATE.ERROR" class="error-message">
   <p>{{ errorMessage }}</p>
 </div>
 
-<section *ngIf="loadingState === 'success'">
+<section *ngIf="loadingState === STATE.SUCCESS">
   <section *ngFor="let event of events" class="event-details">
     <div class="event-container">
       <img class="event-image" [src]="event.photo" alt="{{ event.title }}" />

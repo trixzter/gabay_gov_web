@@ -5,6 +5,7 @@ import { UserNavigationHeaderComponent } from '../user-navigation-header/user-na
 import { EventService } from '../services/events/event.service';
 import { RouterLink } from '@angular/router';
 import { PageLoadingIndicatorsComponent } from '../page-loading-indicators/page-loading-indicators.component';
+import { STATE } from '../app.constants';
 
 @Component({
   selector: 'app-home',
@@ -19,8 +20,9 @@ import { PageLoadingIndicatorsComponent } from '../page-loading-indicators/page-
   styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
+  STATE = STATE;
   events: EventModel[] = [];
-  loadingState: 'idle' | 'loading' | 'success' | 'error' = 'idle';
+  loadingstate: STATE = STATE.IDLE;
   errorMessage: string = '';
 
   constructor(private eventService: EventService) {}
@@ -30,21 +32,19 @@ export class HomeComponent implements OnInit {
   }
 
   fetchEvents(): void {
-    this.loadingState = 'loading';
+    this.loadingstate = STATE.ON_GOING;
 
-    setTimeout(() => { 
       this.eventService.getAllEvents().subscribe({
         next: (events) => {
           this.events = events;
-          this.loadingState = 'success';
+          this.loadingstate = STATE.SUCCESS;
           console.log('Events loaded:', this.events);
         },
         error: (err) => {
-          this.loadingState = 'error';
+          this.loadingstate = STATE.ERROR;
           this.errorMessage = "Failed to load events. Please try again.";
           console.error('Error loading events:', err);
         },
       });
-    }, 1500);
   }
 }

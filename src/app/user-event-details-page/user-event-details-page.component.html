@@ -1,9 +1,9 @@
 <app-user-navigation-header></app-user-navigation-header>
-<app-page-loading-indicators *ngIf="isLoading"></app-page-loading-indicators>
+<app-page-loading-indicators *ngIf="loadingState === STATE.ON_GOING"></app-page-loading-indicators>
 
-<section class="content" [ngClass]="{ 'loading-background': isLoading }">
+<section class="content" [ngClass]="{ 'loading-background': loadingState === STATE.ON_GOING}">
   
-  <ng-container *ngIf="!isLoading && event">
+  <ng-container *ngIf=" loadingState === STATE.SUCCESS && event">
     <div class="image-content">
       <img class="background-image" src="BACKGROUND.jpg" alt="background" />
     </div>
@@ -26,7 +26,10 @@
       </div>
     </div>
   </ng-container>
-  <p *ngIf="!isLoading && error" class="error-message">
-    {{ error }}
+  <p *ngIf="loadingState === STATE.ERROR && errorMessage" class="error-message">
+    {{ errorMessage }}
+  </p>
+  <p *ngIf="loadingState ===STATE.SUCCESS && errorMessage" class="error-message">
+    {{ errorMessage }}
   </p>
 </section>

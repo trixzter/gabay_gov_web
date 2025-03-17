@@ -5,7 +5,7 @@ import { RouterLink } from '@angular/router';
 import { EventService } from '../services/events/event.service';
 import { OrganizerNavigationHeaderComponent } from '../organizer-navigation-header/organizer-navigation-header.component';
 import { PageLoadingIndicatorsComponent } from '../page-loading-indicators/page-loading-indicators.component';
-
+import { STATE } from '../app.constants';
 @Component({
   selector: 'app-events',
   standalone: true,
@@ -19,29 +19,30 @@ import { PageLoadingIndicatorsComponent } from '../page-loading-indicators/page-
   styleUrl: './events.component.scss'
 })
 export class EventsComponent implements OnInit {
+  STATE = STATE;
   events: EventModel[] = [];
-  isLoading: boolean = true;
-  error: any;
+  loadingState: string = STATE.ON_GOING;
+  errorMessage: string = '';
 
   constructor(private eventService: EventService) {}
 
   ngOnInit() {
-    setTimeout(() => {
       this.loadEvents();
-    }, 1500);
   }
 
   loadEvents(): void {
+    this.loadingState = STATE.ON_GOING;
+
     this.eventService.getAllEvents().subscribe({
       next: (events) => {
         this.events = events;
-        this.isLoading = false;
+        this.loadingState = STATE.SUCCESS;
         console.log('Events loaded:', this.events); 
       },
       error: (err) => {
         console.error('Error loading events:', err);
-        this.error = "Failed to load events.";
-        this.isLoading = false;
+        this.errorMessage = "Failed to load events.";
+        this.loadingState = STATE.ERROR;
       }
     });
   }
