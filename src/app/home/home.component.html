@@ -12,7 +12,7 @@
   <div class="events-container">
     <div class="event-card" *ngFor="let event of events.slice(0, 3)">
       <img
-      [src]="event.photo ? 'http://127.0.0.1:5000/assets/' + event.photo : 'upload-picture.png'"
+      [src]="event.photo ? 'BASE_URL' + event.photo : 'upload-picture.png'"
       alt="Event Image"
       class="event-image"
     />

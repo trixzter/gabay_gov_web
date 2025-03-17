@@ -62,10 +62,7 @@ export class CreateEventComponent implements OnInit {
     this.isUploading = true;
     console.log('Uploading file:', this.selectedFile.name);
   
-    const formData = new FormData(); // ✅ Create FormData object
-    formData.append('file', this.selectedFile); // ✅ Append the file
-  
-    this.assetService.uploadFile(formData).subscribe({
+    this.assetService.uploadFile(this.selectedFile!).subscribe({
       next: (response) => {
         console.log('File upload response:', response);
         if (response && response.filename) {

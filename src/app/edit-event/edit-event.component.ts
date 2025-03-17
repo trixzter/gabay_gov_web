@@ -43,7 +43,7 @@ export class EditEventComponent implements OnInit {
       next: (data) => {
         this.event = data; 
         this.imagePreview = this.event.photo 
-          ? `http://127.0.0.1:5000/assets/${this.event.photo}` 
+          ? `BASE_URL${this.event.photo}` 
           : 'upload-picture.png';
       },
       error: (err) => console.error('Error fetching event:', err),
@@ -78,10 +78,7 @@ export class EditEventComponent implements OnInit {
     this.isUploading = true;
     console.log('Uploading file:', this.selectedFile.name);
 
-    const formData = new FormData();
-    formData.append('file', this.selectedFile);
-
-    this.assetService.uploadFile(formData).subscribe({
+    this.assetService.uploadFile(this.selectedFile!).subscribe({
       next: (response) => {
         console.log('File upload response:', response);
         if (response && response.filename) {

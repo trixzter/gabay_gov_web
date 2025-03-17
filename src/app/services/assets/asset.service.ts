@@ -12,8 +12,10 @@ export class AssetService {
 
   constructor(private http: HttpClient) { }
 
-  uploadFile(fileData: FormData): Observable<any> {
-    return this.http.post<any>(`${baseUrl}/assets`, fileData); // Make sure backend expects `/upload`
+  uploadFile(file: File): Observable<any> {
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.http.post(`${baseUrl}/`, formData);
   }
 
   downloadFile(filename: string): Observable<Blob> {

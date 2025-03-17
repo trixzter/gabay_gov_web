@@ -3,7 +3,7 @@
   <div class="upload-container">
     <div class="upload-box">
       <img
-      [src]="imagePreview ? imagePreview : (eventModel.photo ? 'http://127.0.0.1:5000/assets/' + eventModel.photo : 'upload-picture.png')"
+      [src]="imagePreview ? imagePreview : (eventModel.photo ? 'BASE_URL' + eventModel.photo : 'upload-picture.png')"
       alt="Upload Background"
       class="upload-image"
       />

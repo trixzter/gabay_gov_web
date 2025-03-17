@@ -2,7 +2,7 @@
 <section *ngFor="let event of events" class="event-details">
   <div class="event-container">
     <img
-      [src]="event.photo ? 'http://127.0.0.1:5000/assets/' + event.photo : 'upload-picture.png'"
+      [src]="event.photo ? 'BASE_URL' + event.photo : 'upload-picture.png'"
       alt="Event Image"
       class="event-image"
     />
