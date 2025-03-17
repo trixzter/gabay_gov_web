@@ -1,33 +1,32 @@
 <app-user-navigation-header></app-user-navigation-header>
-<section class="content" *ngIf="event?.id">
-  <div class="image-content">
-    <img class="background-image" src="BACKGROUND.jpg" alt="background" />
-  </div>
-  <div class="libreng-gupit-content">
-    <img [src]="event.photo" class="libreng-gupit" alt="{{ event.title }}" />
-  </div>
-  <div class="event-content">
-    <h1>{{ event.title }}</h1>
+<app-page-loading-indicators *ngIf="isLoading"></app-page-loading-indicators>
 
-    <div class="date_time">
-      <i class="fa fa-calendar"></i> Date And Time
-      <div class="date-time">{{ event.date }} | {{ event.time }}</div>
+<section class="content" [ngClass]="{ 'loading-background': isLoading }">
+  
+  <ng-container *ngIf="!isLoading && event">
+    <div class="image-content">
+      <img class="background-image" src="BACKGROUND.jpg" alt="background" />
     </div>
-
-    <div class="location">
-      <i class="fa fa-location-arrow"></i> Location
-      <div class="loc">
-        {{ event.location }}
+    <div class="libreng-gupit-content">
+      <img [src]="event.photo" class="libreng-gupit" alt="{{ event.title }}" />
+    </div>
+    <div class="event-content">
+      <h1>{{ event.title }}</h1>
+      <div class="date_time">
+        <i class="fa fa-calendar"></i> Date And Time
+        <div class="date-time">{{ event.date }} | {{ event.time }}</div>
+      </div>
+      <div class="location">
+        <i class="fa fa-location-arrow"></i> Location
+        <div class="loc">{{ event.location }}</div>
+      </div>
+      <div class="about_this_event">
+        <i class="fa fa-check-circle"></i> About This Event
+        <div class="about">{{ event.description }}<br /></div>
       </div>
     </div>
-
-    <div class="about_this_event">
-      <i class="fa fa-check-circle"></i> About This Event
-      <div class="about">{{ event.description }}<br /></div>
-    </div>
-  </div>
+  </ng-container>
+  <p *ngIf="!isLoading && error" class="error-message">
+    {{ error }}
+  </p>
 </section>
-<p *ngIf="!event?.id" class="loading-message">Loading event details...</p>
-<div *ngIf="error" class="error-message">
-  {{ error }}
-</div>
