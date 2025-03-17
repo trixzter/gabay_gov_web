@@ -3,7 +3,6 @@ import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { BASE_URL } from '../../app.constants';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -16,7 +15,6 @@ export class AssetService {
     formData.append('file', file);
     return this.http.post(`${BASE_URL}/assets/`, formData);
   }
-
   downloadFile(filename: string): Observable<Blob> {
     return this.http.get(`${BASE_URL}/${filename}`, { responseType: 'blob' });
   }
