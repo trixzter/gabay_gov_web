@@ -26,7 +26,6 @@ export class EditEventComponent implements OnInit {
   selectedFile: File | null = null;
   imagePreview: string | null = null;
   isUploading = false;
-  BASE_URL = BASE_URL;
 
   constructor(
     private eventService: EventService,
