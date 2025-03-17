@@ -56,6 +56,7 @@ export class CreateEventComponent implements OnInit {
     }
   }
 
+
   uploadFile(): void {
     if (!this.selectedFile) return;
   
@@ -81,6 +82,17 @@ export class CreateEventComponent implements OnInit {
       }
     });
   }
+
+  saveEvent(): void {
+    const eventModel: EventModel = {
+      title: this.eventModel.title,
+      date: this.eventModel.date,
+      time: this.eventModel.time,
+      location: this.eventModel.location,
+      description: this.eventModel.description,
+      photo: this.eventModel.photo || ' ',
+    };
+
 
   saveEvent(): void {
     console.log('Save event called with data:', this.eventModel);
