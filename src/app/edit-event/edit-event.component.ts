@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { EventModel } from '../models/event.model';
 import { OrganizerNavigationHeaderComponent } from '../organizer-navigation-header/organizer-navigation-header.component';
 import { AssetService } from '../services/assets/asset.service';
+import { BASE_URL } from '../app.constants';
 
 @Component({
   selector: 'app-edit-event',
@@ -25,6 +26,7 @@ export class EditEventComponent implements OnInit {
   selectedFile: File | null = null;
   imagePreview: string | null = null;
   isUploading = false;
+  BASE_URL = BASE_URL;
 
   constructor(
     private eventService: EventService,
@@ -43,8 +45,8 @@ export class EditEventComponent implements OnInit {
       next: (data) => {
         this.event = data; 
         this.imagePreview = this.event.photo 
-          ? `BASE_URL${this.event.photo}` 
-          : 'upload-picture.png';
+        ? `${BASE_URL}/assets/${this.event.photo}` 
+        : 'upload-picture.png';
       },
       error: (err) => console.error('Error fetching event:', err),
     });
@@ -60,30 +62,28 @@ export class EditEventComponent implements OnInit {
     if (input.files && input.files.length > 0) {
       this.selectedFile = input.files[0];
 
-      // Preview the new selected image
+      
       const reader = new FileReader();
       reader.onload = () => {
         this.imagePreview = reader.result as string;
       };
       reader.readAsDataURL(this.selectedFile);
 
-      // Upload the file
+      
       this.uploadFile();
     }
   }
 
   uploadFile(): void {
     if (!this.selectedFile) return;
-
+  
     this.isUploading = true;
-    console.log('Uploading file:', this.selectedFile.name);
-
-    this.assetService.uploadFile(this.selectedFile!).subscribe({
+  
+    this.assetService.uploadFile(this.selectedFile).subscribe({
       next: (response) => {
-        console.log('File upload response:', response);
         if (response && response.filename) {
-          this.event.photo = response.filename;
-          console.log('Updated event photo:', this.event.photo);
+          this.event.photo = response.filename; 
+          this.imagePreview = `${BASE_URL}/assets/${response.filename}`;
         }
         this.isUploading = false;
       },

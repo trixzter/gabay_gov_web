@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { UserNavigationHeaderComponent } from '../user-navigation-header/user-navigation-header.component';
 import { EventService } from '../services/events/event.service';
 import { RouterLink } from '@angular/router';
+import { BASE_URL } from '../app.constants';
 
 @Component({
   selector: 'app-home',
@@ -18,6 +19,7 @@ import { RouterLink } from '@angular/router';
 })
 export class HomeComponent {
   events: EventModel[] = [];
+  BASE_URL = BASE_URL;
 
   constructor(private eventService: EventService) {}
 

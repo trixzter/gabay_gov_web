@@ -2,10 +2,11 @@
 <section *ngFor="let event of events" class="event-details">
   <div class="event-container">
     <img
-    [src]="event.photo ? 'BASE_URL' + event.photo : 'upload-picture.png'"
-    alt="Event Image"
-    class="event-image"
-/>
+      [src]="event.photo ? BASE_URL + '/assets/' + event.photo : 'assets/upload-picture.png'"
+      alt="Event Image"
+      class="event-image"
+    />
+
     <div class="event-content">
       <h1 class="event-title">{{ event.title }}</h1>
       <p class="event-date">{{ event.date }}</p>

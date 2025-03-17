@@ -5,6 +5,7 @@ import { EventService } from '../services/events/event.service';
 import { EventModel } from '../models/event.model';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { BASE_URL } from '../app.constants';
 
 @Component({
   selector: 'app-user-event-details-page',
@@ -20,6 +21,7 @@ import { ActivatedRoute } from '@angular/router';
 export class UserEventDetailsPageComponent implements OnInit {
   event: EventModel = {} as EventModel;
   error: any;
+  BASE_URL = BASE_URL;
 
   constructor(
     private eventService: EventService,

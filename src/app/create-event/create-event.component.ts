@@ -6,6 +6,7 @@ import { EventModel } from '../models/event.model';
 import { FormsModule } from '@angular/forms';
 import { Router} from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { BASE_URL } from '../app.constants';
 
 @Component({
   selector: 'app-create-event',
@@ -24,6 +25,7 @@ export class CreateEventComponent implements OnInit {
   selectedFile: File | null = null;
   imagePreview: string | null = null;
   isUploading = false;
+  BASE_URL = BASE_URL;
 
   constructor(
     private eventService: EventService, 
@@ -44,14 +46,14 @@ export class CreateEventComponent implements OnInit {
     if (input.files && input.files.length > 0) {
       this.selectedFile = input.files[0];
       
-      // Create preview
+     
       const reader = new FileReader();
       reader.onload = () => {
         this.imagePreview = reader.result as string;
       };
       reader.readAsDataURL(this.selectedFile);
       
-      // Upload the file
+    
       this.uploadFile();
     }
   }
@@ -62,7 +64,7 @@ export class CreateEventComponent implements OnInit {
     this.isUploading = true;
     console.log('Uploading file:', this.selectedFile.name);
   
-    this.assetService.uploadFile(this.selectedFile!).subscribe({
+    this.assetService.uploadFile(this.selectedFile).subscribe({
       next: (response) => {
         console.log('File upload response:', response);
         if (response && response.filename) {
