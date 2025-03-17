@@ -3,20 +3,23 @@
   <div class="upload-container">
     <div class="upload-box">
       <img
-        src="upload-picture.png"
-        alt="Upload Background"
-        class="upload-image"
+      [src]="imagePreview ? imagePreview : (eventModel.photo ? 'http://127.0.0.1:5000/assets/' + eventModel.photo : 'upload-picture.png')"
+      alt="Upload Background"
+      class="upload-image"
       />
       <input
         type="file"
         id="fileInput"
         accept="image/*"
         style="display: none"
+        (change)="onFileSelected($event)"
       />
-      <button class="upload-btn">
-        Attach your Event Photo Here
+      <button type="button" class="upload-btn" (click)="triggerFileInput()">
+        {{ eventModel.photo ? 'Change Photo' : 'Attach your Event Photo Here' }}
         <i class="fa fa-upload"></i>
       </button>
+      <div *ngIf="isUploading" class="upload-status">Uploading...</div>
+      <div *ngIf="eventModel.photo" class="upload-status">Photo uploaded</div>
     </div>
   </div>
 </div>
@@ -24,7 +27,7 @@
   <div class="input-container">
     <input
       type="text"
-      placeholder="Enter Title: Example - Libreng Gupit "
+      placeholder="Enter Title: Example - Libreng Gupit"
       class="enter-title"
       id="title"
       required
@@ -35,7 +38,7 @@
     <div class="date-time">
       <input
         type="text"
-        placeholder="Input the Date Example - January 1, 2025 "
+        placeholder="Input the Date Example - January 1, 2025"
         class="date-loc"
         id="date"
         required
@@ -44,7 +47,7 @@
       />
       <input
         type="text"
-        placeholder="Input the Time: Example - 8:AM to 5:00 PM "
+        placeholder="Input the Time: Example - 8:AM to 5:00 PM"
         class="date-loc"
         id="time"
         required
@@ -55,7 +58,7 @@
     <p><i class="fa fa-location-arrow"></i>Location</p>
     <input
       type="text"
-      placeholder="Input the Location: Example - Bugtong, Lipa, Courth "
+      placeholder="Input the Location: Example - Bugtong, Lipa, Courth"
       class="date-loc"
       id="location"
       required
@@ -65,9 +68,7 @@
     <p><i class="fa fa-check-circle"></i>About This Event</p>
     <input
       type="text"
-      placeholder="Input what the Event is all about:Example - Tuloy tuloy lang ang Serbisyo at Suporta natin para sa mga Mag-aaral na KABATAAN na mag 
-        babalik Eskwela! Libreng GUPIT! handog sa inyo ng Sangguniang Kabataan!  
-        sa Sampalucan.  "
+      placeholder="Input what the Event is all about..."
       class="about-input"
       id="description"
       required
@@ -78,10 +79,6 @@
 </div>
 <div class="save-content">
   <div class="save-btn">
-    <form (ngSubmit)="saveEvent()" #eventForm="ngForm">
-      <button type="submit">SAVE</button>
-    </form>
+    <button type="button" (click)="saveEvent()">SAVE</button>
   </div>
 </div>
-
-
