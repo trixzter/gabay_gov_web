@@ -9,12 +9,9 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-register-page',
   standalone: true,
-  imports: [
-    FormsModule,
-    CommonModule
-  ],
+  imports: [FormsModule, CommonModule],
   templateUrl: './register-page.component.html',
-  styleUrls: ['./register-page.component.scss']
+  styleUrls: ['./register-page.component.scss'],
 })
 export class RegisterPageComponent {
   firstName: string = '';
@@ -47,7 +44,7 @@ export class RegisterPageComponent {
 
   uploadFile(): void {
     if (!this.selectedFile) return;
-    
+
     this.isUploading = true;
     this.assetService.uploadFile(this.selectedFile).subscribe({
       next: (response) => {
@@ -59,7 +56,7 @@ export class RegisterPageComponent {
       error: () => {
         this.isUploading = false;
         alert('Failed to upload government ID. Please try again.');
-      }
+      },
     });
   }
 
@@ -70,7 +67,7 @@ export class RegisterPageComponent {
       email: this.email,
       username: this.username,
       password: this.password,
-      government_id: this.governmentId || ' ',
+      government_id: this.governmentId,
     };
 
     this.userService.register(user).subscribe({
@@ -80,7 +77,7 @@ export class RegisterPageComponent {
       },
       error: () => {
         alert('Registration failed. Please try again.');
-      }
+      },
     });
   }
 }
