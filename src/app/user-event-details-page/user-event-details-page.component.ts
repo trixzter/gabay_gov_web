@@ -5,6 +5,7 @@ import { EventService } from '../services/events/event.service';
 import { EventModel } from '../models/event.model';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { BASE_URL } from '../app.constants';
 
 @Component({
   selector: 'app-user-event-details-page',
@@ -29,6 +30,10 @@ export class UserEventDetailsPageComponent implements OnInit {
   ngOnInit(): void {
     const eventId = Number(this.route.snapshot.paramMap.get('id'));
     this.getEventDetails(eventId);
+  }
+
+  getEventImageSrc(event: EventModel): string {
+    return event && event.photo ? `${BASE_URL}/assets/${event.photo}` : 'assets/upload-picture.png';
   }
   
   getEventDetails(eventId: number): void {

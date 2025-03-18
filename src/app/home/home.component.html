@@ -11,8 +11,7 @@
 
   <div class="events-container">
     <div class="event-card" *ngFor="let event of events.slice(0, 3)">
-      <img [src]="event.photo" alt="{{ event.title }}" class="event-image" />
-
+      <img [src]="getEventImageSrc(event)" alt="Event Image" class="event-image" />
       <div class="event-details">
         <h3 class="event-title">{{ event.title }}</h3>
         <p class="event-date-time">{{ event.date }} | {{ event.time }}</p>

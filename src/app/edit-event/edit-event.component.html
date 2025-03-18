@@ -3,20 +3,23 @@
   <div class="upload-container">
     <div class="upload-box" *ngIf="event">
       <img
-        [src]="event.photo || 'upload-picture.png'"
-        alt="Upload Background"
+        [src]="imagePreview"
+        alt="Event Image"
         class="upload-image"
       />
       <input
         type="file"
         id="fileInput"
         accept="image/*"
-        (change)="($event)"
+        (change)="onFileSelected($event)"
         style="display: none"
       />
       <button class="upload-btn" (click)="triggerFileInput()">
-        Attach your New Event Photo Here <i class="fa fa-upload"></i>
+        {{ event.photo ? 'Change Photo' : 'Attach Event Photo' }}
+        <i class="fa fa-upload"></i>
       </button>
+      <div *ngIf="isUploading" class="upload-status">Uploading...</div>
+      <div *ngIf="event.photo" class="upload-status">Photo uploaded</div>
     </div>
   </div>
 </div>
