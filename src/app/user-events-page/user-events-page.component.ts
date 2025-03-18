@@ -6,6 +6,7 @@ import { UserNavigationHeaderComponent } from '../user-navigation-header/user-na
 import { EventService } from '../services/events/event.service';
 import { PageLoadingIndicatorsComponent } from '../page-loading-indicators/page-loading-indicators.component';
 import { STATE } from '../app.constants';
+import { BASE_URL } from '../app.constants';
 
 @Component({
   selector: 'app-user-events-page',
@@ -46,5 +47,9 @@ export class UserEventsPageComponent implements OnInit {
           console.error('Error loading events:', err);
         },
       });
+    }
+
+  getEventImageSrc(event: EventModel): string {
+    return event && event.photo ? `${BASE_URL}/assets/${event.photo}` : 'assets/upload-picture.png';
   }
 }

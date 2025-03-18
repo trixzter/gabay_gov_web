@@ -6,7 +6,8 @@ import { EventModel } from '../models/event.model';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { PageLoadingIndicatorsComponent } from '../page-loading-indicators/page-loading-indicators.component';
-import { STATE } from '../app.constants';
+import { STATE, BASE_URL } from '../app.constants';
+
 
 @Component({
   selector: 'app-user-event-details-page',
@@ -45,6 +46,10 @@ export class UserEventDetailsPageComponent implements OnInit {
     });
   }
 
+  getEventImageSrc(event: EventModel): string {
+    return event && event.photo ? `${BASE_URL}/assets/${event.photo}` : 'assets/upload-picture.png';
+  }
+  
   getEventDetails(eventId: number): void {
     this.loadingState = STATE.ON_GOING;
     this.eventService.getEvent(eventId).subscribe({

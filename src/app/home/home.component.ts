@@ -5,8 +5,7 @@ import { UserNavigationHeaderComponent } from '../user-navigation-header/user-na
 import { EventService } from '../services/events/event.service';
 import { RouterLink } from '@angular/router';
 import { PageLoadingIndicatorsComponent } from '../page-loading-indicators/page-loading-indicators.component';
-import { STATE } from '../app.constants';
-
+import { STATE,BASE_URL } from '../app.constants';
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -26,6 +25,10 @@ export class HomeComponent implements OnInit {
   errorMessage: string = '';
 
   constructor(private eventService: EventService) {}
+
+  getEventImageSrc(event: EventModel): string {
+    return event && event.photo ? `${BASE_URL}/assets/${event.photo}` : 'assets/upload-picture.png';
+  }
 
   ngOnInit() {
     this.fetchEvents();

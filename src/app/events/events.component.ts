@@ -6,6 +6,7 @@ import { EventService } from '../services/events/event.service';
 import { OrganizerNavigationHeaderComponent } from '../organizer-navigation-header/organizer-navigation-header.component';
 import { PageLoadingIndicatorsComponent } from '../page-loading-indicators/page-loading-indicators.component';
 import { STATE } from '../app.constants';
+import { BASE_URL } from '../app.constants';
 @Component({
   selector: 'app-events',
   standalone: true,
@@ -24,7 +25,12 @@ export class EventsComponent implements OnInit {
   loadingState: string = STATE.IDLE;
   errorMessage: string = '';
 
+
   constructor(private eventService: EventService) {}
+  
+  getEventImageSrc(event: EventModel): string {
+    return event && event.photo ? `${BASE_URL}/assets/${event.photo}` : 'assets/upload-picture.png';
+  }
 
   ngOnInit() {
       this.loadEvents();
