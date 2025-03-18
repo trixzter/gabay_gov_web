@@ -1,22 +1,32 @@
 <app-user-navigation-header></app-user-navigation-header>
-<section *ngFor="let event of events" class="event-details">
-  <div class="event-container">
-    <img [src]="getEventImageSrc(event)" alt="Event Image" class="event-image" />
-    <div class="event-content">
-      <h1 class="event-title">{{ event.title }}</h1>
-      <p class="event-date">{{ event.date }}</p>
-      <p class="event-time">{{ event.time }}</p>
-      <p class="event-location">{{ event.location }}</p>
-      <div class="button-container">
-        <a
-          [routerLink]="['/user-event-details-page', event.id]"
-          routerLinkActive="active"
-          class="event-button"
-          class="btn"
-          >Event Details</a
-        >
+<div *ngIf="loadingState === STATE.ON_GOING">
+  <app-page-loading-indicators></app-page-loading-indicators>
+</div>
+
+<div *ngIf="loadingState === STATE.ERROR" class="error-message">
+  <p>{{ errorMessage }}</p>
+</div>
+
+<section *ngIf="loadingState === STATE.SUCCESS">
+  <section *ngFor="let event of events" class="event-details">
+    <div class="event-container">
+      <img class="event-image" [src]="event.photo" alt="{{ event.title }}" />
+      <div class="event-content">
+        <h1 class="event-title">{{ event.title }}</h1>
+        <p class="event-date">{{ event.date }}</p>
+        <p class="event-time">{{ event.time }}</p>
+        <p class="event-location">{{ event.location }}</p>
+        <div class="button-container">
+          <a
+            [routerLink]="['/user-event-details-page', event.id]"
+            routerLinkActive="active"
+            class="event-button btn"
+          >
+            Event Details
+          </a>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 </section>
-<hr />
+

@@ -1,19 +1,32 @@
 <app-organizer-navigation-header></app-organizer-navigation-header>
-<section *ngFor="let event of events" class="event-details">
-  <div class="event-container">
-    <img [src]="getEventImageSrc(event)" alt="Event Image" class="event-image" />
+<app-page-loading-indicators *ngIf="loadingState == STATE.ON_GOING"></app-page-loading-indicators>
+<section [ngClass]="{ 'loading-background': loadingState === STATE.ON_GOING}">
+  
+  <ng-container *ngIf="loadingState === STATE.SUCCESS && events.length > 0">
+    <section *ngFor="let event of events" class="event-details">
+      <div class="event-container">
+        <img class="event-image" [src]="event.photo" alt="{{ event.title }}" />
+        <div class="event-content">
+          <h1 class="event-title">{{ event.title }}</h1>
+          <p class="event-date">{{ event.date }}</p>
+          <p class="event-time">{{ event.time }}</p>
+          <p class="event-location">{{ event.location }}</p>
+        </div>
+      </div>
+      <div class="button-container">
+        <a [routerLink]="['/edit-event', event.id]" class="btn">
+          Edit/Delete Event
+        </a>
+      </div>
+    </section>
+    <hr />
+  </ng-container>
 
-    <div class="event-content">
-      <h1 class="event-title">{{ event.title }}</h1>
-      <p class="event-date">{{ event.date }}</p>
-      <p class="event-time">{{ event.time }}</p>
-      <p class="event-location">{{ event.location }}</p>
-    </div>
-  </div>
-  <div class="button-container">
-    <a [routerLink]="['/edit-event', event.id]" class="btn">
-      Edit/Delete Event
-    </a>
-  </div>
+  <p *ngIf="loadingState === STATE.ERROR && errorMessage" class="error-message">
+    {{ errorMessage }}
+  </p>
+
+  <p *ngIf="loadingState === STATE.SUCCESS && events.length === 0" class="no-events-message">
+    No events available.
+  </p>
 </section>
-<hr />

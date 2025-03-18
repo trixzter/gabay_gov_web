@@ -1,4 +1,5 @@
 <app-user-navigation-header></app-user-navigation-header>
+
 <div class="hero-section">
   <img src="homelogo.png" alt="GabayGov Logo" class="hero-logo" />
   <h1>
@@ -6,10 +7,18 @@
     GABAYGOV!
   </h1>
 </div>
+
 <div class="events-section">
   <h2 class="events-header">Latest Events</h2>
+  <div *ngIf="loadingstate === STATE.ON_GOING">
+    <app-page-loading-indicators></app-page-loading-indicators>
+  </div>
 
-  <div class="events-container">
+  <div *ngIf="loadingstate === STATE.ERROR" class="error-message">
+    <p>{{ errorMessage }}</p>
+  </div>
+
+  <div class="events-container" *ngIf="loadingstate === STATE.SUCCESS">
     <div class="event-card" *ngFor="let event of events.slice(0, 3)">
       <img [src]="getEventImageSrc(event)" alt="Event Image" class="event-image" />
       <div class="event-details">
@@ -55,7 +64,6 @@
         <a href="#"> &#64;GabayGov</a>
       </p>
     </div>
-    >
   </div>
   <p class="copyright">
     © 2025 GabayGov. All rights reserved. | Powered by TEAM LASALLE
