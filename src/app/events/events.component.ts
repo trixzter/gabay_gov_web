@@ -21,7 +21,7 @@ import { STATE } from '../app.constants';
 export class EventsComponent implements OnInit {
   STATE = STATE;
   events: EventModel[] = [];
-  loadingState: string = STATE.ON_GOING;
+  loadingState: string = STATE.IDLE;
   errorMessage: string = '';
 
   constructor(private eventService: EventService) {}

@@ -24,7 +24,7 @@ export class UserEventDetailsPageComponent implements OnInit {
   STATE = STATE;
   event?: EventModel; 
   errorMessage: string = '';
-  loadingState = STATE.ON_GOING; 
+  loadingState = STATE.IDLE; 
 
   constructor(
     private eventService: EventService,
