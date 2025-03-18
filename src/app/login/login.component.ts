@@ -23,12 +23,12 @@ export class LoginComponent {
   constructor(private router: Router, private userService: UserService) {}
 
   loginUser() {
-    const credentials: UserModel = {
+    const user: UserModel = {
       username: this.username,
       password: this.password
     };
   
-    this.userService.login(credentials).subscribe({
+    this.userService.login(user).subscribe({
       next: (res: any) => {
         console.log('Login successful:', res);
         alert('Login successful!');
