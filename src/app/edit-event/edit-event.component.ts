@@ -12,8 +12,8 @@ import { BASE_URL } from '../app.constants';
   selector: 'app-edit-event',
   standalone: true,
   imports: [
-    CommonModule,
-    FormsModule,
+    CommonModule, 
+    FormsModule, 
     OrganizerNavigationHeaderComponent
   ],
   templateUrl: './edit-event.component.html',
@@ -42,10 +42,10 @@ export class EditEventComponent implements OnInit {
   getEventDetails(): void {
     this.eventService.getEvent(this.eventId).subscribe({
       next: (data) => {
-        this.event = data; 
-        this.imagePreview = this.event.photo 
-        ? `${BASE_URL}/assets/${this.event.photo}` 
-        : 'upload-picture.png';
+        this.event = data;
+        this.imagePreview = this.event.photo
+          ? `${BASE_URL}/assets/${this.event.photo}`
+          : 'upload-picture.png';
       },
       error: (err) => console.error('Error fetching event:', err),
     });
@@ -61,27 +61,25 @@ export class EditEventComponent implements OnInit {
     if (input.files && input.files.length > 0) {
       this.selectedFile = input.files[0];
 
-      
       const reader = new FileReader();
       reader.onload = () => {
         this.imagePreview = reader.result as string;
       };
       reader.readAsDataURL(this.selectedFile);
 
-      
       this.uploadFile();
     }
   }
 
   uploadFile(): void {
     if (!this.selectedFile) return;
-  
+
     this.isUploading = true;
-  
+
     this.assetService.uploadFile(this.selectedFile).subscribe({
       next: (response) => {
         if (response && response.filename) {
-          this.event.photo = response.filename; 
+          this.event.photo = response.filename;
           this.imagePreview = `${BASE_URL}/assets/${response.filename}`;
         }
         this.isUploading = false;
@@ -90,7 +88,7 @@ export class EditEventComponent implements OnInit {
         console.error('Error uploading file:', error);
         this.isUploading = false;
         alert('Failed to upload image. Please try again.');
-      }
+      },
     });
   }
 
