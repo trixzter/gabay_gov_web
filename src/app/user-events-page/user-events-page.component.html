@@ -10,7 +10,11 @@
 <section *ngIf="loadingState === STATE.SUCCESS">
   <section *ngFor="let event of events" class="event-details">
     <div class="event-container">
-      <img class="event-image" [src]="event.photo" alt="{{ event.title }}" />
+      <img
+        [src]="getEventImageSrc(event)"
+        alt="Event Image"
+        class="event-image"
+      />
       <div class="event-content">
         <h1 class="event-title">{{ event.title }}</h1>
         <p class="event-date">{{ event.date }}</p>
@@ -29,4 +33,3 @@
     </div>
   </section>
 </section>
-
