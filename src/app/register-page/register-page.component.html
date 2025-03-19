@@ -39,16 +39,26 @@
         [(ngModel)]="password"
         name="password"
       />
-
-      <button type="button" class="gov-id">
-        Attach a copy of your Government ID
+      <input
+        type="file"
+        id="fileInput"
+        accept="image/*"
+        style="display: none"
+        (change)="onFileSelected($event)"
+      />
+      <button type="button" class="gov-id" (click)="triggerFileInput()">
+        {{
+          governmentId
+            ? "Change Government ID"
+            : "Attach a copy of your Government ID"
+        }}
         <i class="fa-solid fa-file-arrow-up"></i>
       </button>
-
-      <button type="submit" class="login-button">
-        Create Account
-      </button>
+      <div *ngIf="isUploading" class="upload-status">Uploading...</div>
+      <div *ngIf="governmentId" class="upload-status">
+        Government ID uploaded
+      </div>
+      <button type="submit" class="login-button">Create Account</button>
     </form>
-
   </div>
 </div>
