@@ -1,0 +1,36 @@
+<footer class="footer">
+  <div class="footer-content">
+    <div class="updates">
+      <h3>Get Notified for Upcoming Events!</h3>
+      <form [formGroup]="emailForm" (ngSubmit)="onSubmit()" class="email-form">
+        <input
+          type="email"
+          formControlName="subscriber_email"
+          placeholder="Enter your email address"
+          required
+        />
+        <button type="submit" [disabled]="emailForm.invalid || isSubmitting">
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </form>
+      <p *ngIf="message" class="message">{{ message }}</p>
+    </div>
+    <div class="socials">
+      <p>
+        <i class="fa-brands fa-facebook"></i> Facebook: <a href="#">GabayGov</a>
+      </p>
+      <p>
+        <i class="fa-brands fa-instagram"></i> Instagram:
+        <a href="#">GabayGov</a>
+      </p>
+      <p>
+        <i class="fa-brands fa-twitter"></i> Twitter/X:
+        <a href="#">GabayGovPH</a>
+      </p>
+    </div>
+  </div>
+  <p class="copyright">
+    © 2025 GabayGov. All rights reserved. | Powered by TEAM LASALLE 🚀
+  </p>
+</footer>
+

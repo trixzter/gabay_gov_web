@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { UserNavigationHeaderComponent } from '../user-navigation-header/user-navigation-header.component';
 import { EventService } from '../services/events/event.service';
 import { RouterLink } from '@angular/router';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,8 @@ import { RouterLink } from '@angular/router';
   imports: [
     CommonModule, 
     UserNavigationHeaderComponent, 
-    RouterLink
+    RouterLink,
+    FooterComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
