@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink, RouterModule } from '@angular/router';
 
@@ -16,8 +16,8 @@ import { Router, RouterLink, RouterModule } from '@angular/router';
   styleUrl: './user-navigation-header.component.scss'
 })
 export class UserNavigationHeaderComponent {
-  title: string = '';
-  location: string = '';
+  @Input() title: string = '';    
+  @Input() location: string = ''; 
 
   constructor(private router: Router) {}
 
