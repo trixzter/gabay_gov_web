@@ -7,6 +7,8 @@ import { EventService } from '../services/events/event.service';
 import { PageLoadingIndicatorsComponent } from '../page-loading-indicators/page-loading-indicators.component';
 import { STATE } from '../app.constants';
 import { BASE_URL } from '../app.constants';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-user-events-page',
@@ -25,29 +27,35 @@ export class UserEventsPageComponent implements OnInit {
   events: EventModel[] = [];
   loadingState: STATE = STATE.IDLE;
   errorMessage: string = '';
+  title: string = '';  
+  location: string = ''; 
 
-  constructor(private eventService: EventService) {}
+  constructor(private eventService: EventService,
+    private route: ActivatedRoute  ) {}
 
+  
   ngOnInit(): void {
-    this.fetchEvents();
+    this.route.queryParams.subscribe(params => {
+      this.title = params['title'] || '';
+      this.location = params['location'] || '';
+      this.fetchEvents();
+    });
   }
 
   fetchEvents(): void {
     this.loadingState = STATE.ON_GOING;
 
-      this.eventService.getAllEvents().subscribe({
-        next: (events) => {
-          this.events = events;
-          this.loadingState = STATE.SUCCESS;
-          console.log('Events loaded:', this.events); 
-        },
-        error: (err) => {
-          this.loadingState = STATE.ERROR;
-          this.errorMessage = "Failed to load events. Please try again.";
-          console.error('Error loading events:', err);
-        },
-      });
-    }
+    this.eventService.getAllEvents(this.title, this.location).subscribe({
+      next: (events) => {
+        this.events = events;
+        this.loadingState = STATE.SUCCESS;
+      },
+      error: (err) => {
+        this.loadingState = STATE.ERROR;
+        this.errorMessage = "No current events matching your search. Please Try Again. Thank you!";
+      },
+    });
+  }
 
   getEventImageSrc(event: EventModel): string {
     return event && event.photo ? `${BASE_URL}/assets/${event.photo}` : 'assets/upload-picture.png';

@@ -12,10 +12,10 @@
 
   <div class="search-container">
     <div class="search-inputs">
-      <input type="text" placeholder="Search" />
-      <input type="text" placeholder="Location" />
+      <input type="text" placeholder="Search" [(ngModel)]="title" />
+      <input type="text" placeholder="Location" [(ngModel)]="location" />
     </div>
-    <i class="fa fa-search"></i>
+    <i class="fa fa-search" (click)="onSearch()"></i>
   </div>
 
   <button routerLink="/login" routerLinkActive="active" class="login-button">
