@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { UserModel } from '../../models/user.model';
 import { HttpClient } from '@angular/common/http';
 import { BASE_URL } from '../../app.constants';
@@ -17,7 +17,6 @@ export class UserService {
   register(user: UserModel): Observable<any> {
     return this.http.post(`${BASE_URL}/users/register`, user);
   }
-  
   login(user: UserModel): Observable<any> {
     return this.http.post(`${BASE_URL}/users/login`, user);
   }

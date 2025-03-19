@@ -4,8 +4,10 @@ import { CommonModule } from '@angular/common';
 import { UserNavigationHeaderComponent } from '../user-navigation-header/user-navigation-header.component';
 import { EventService } from '../services/events/event.service';
 import { RouterLink } from '@angular/router';
+import { FooterComponent } from '../footer/footer.component';
 import { PageLoadingIndicatorsComponent } from '../page-loading-indicators/page-loading-indicators.component';
 import { STATE,BASE_URL } from '../app.constants';
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -13,7 +15,6 @@ import { STATE,BASE_URL } from '../app.constants';
     CommonModule, 
     UserNavigationHeaderComponent, 
     RouterLink,
-    PageLoadingIndicatorsComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
