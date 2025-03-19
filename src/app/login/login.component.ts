@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../services/users/user.service';
@@ -11,6 +11,7 @@ import { UserModel } from '../models/user.model';
   imports: [
     FormsModule,
     CommonModule,
+    RouterModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
@@ -22,12 +23,12 @@ export class LoginComponent {
   constructor(private router: Router, private userService: UserService) {}
 
   loginUser() {
-    const credentials: UserModel = {
+    const user: UserModel = {
       username: this.username,
       password: this.password
     };
   
-    this.userService.login(credentials).subscribe({
+    this.userService.login(user).subscribe({
       next: (res: any) => {
         console.log('Login successful:', res);
         alert('Login successful!');
