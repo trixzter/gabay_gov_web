@@ -14,10 +14,6 @@ export class EmailSubscriptionService {
   addEmail(subscriber_email: string): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-    return this.http.post(
-      this.API_URL,
-      { subscriber_email }, 
-      { headers }
-    );
+    return this.http.post(this.API_URL, { subscriber_email }, { headers });
   }
 }
