@@ -32,7 +32,7 @@ export class FooterComponent {
         const email = this.emailForm.value.subscriber_email;
         this.emailService.addEmail(email).subscribe({
           next: (res) => {
-            this.message = res?.Success || 'Subscription successful!';
+            this.message = 'Subscription successful!';
             this.emailForm.reset(); 
           },
           error: (err) => {
