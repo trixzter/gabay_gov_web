@@ -15,6 +15,8 @@ import { STATE,BASE_URL } from '../app.constants';
     CommonModule, 
     UserNavigationHeaderComponent, 
     RouterLink,
+    FooterComponent,
+    PageLoadingIndicatorsComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
