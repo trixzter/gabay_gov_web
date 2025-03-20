@@ -79,7 +79,7 @@ export class RegisterPageComponent {
       email: this.email,
       username: this.username,
       password: this.password,
-      government_id: this.governmentId || '',
+      government_id: this.governmentId,
     };
 
     this.userService.register(user).subscribe({
