@@ -4,7 +4,6 @@ import { CreateEventComponent } from './create-event/create-event.component';
 import { HomeComponent } from './home/home.component';
 import { EditEventComponent } from './edit-event/edit-event.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
-import { UpdateProfilePageComponent } from './update-profile-page/update-profile-page.component';
 import { UserEventsPageComponent } from './user-events-page/user-events-page.component';
 import { AboutUsPageComponent } from './about-us-page/about-us-page.component';
 import { LoginComponent } from './login/login.component';
@@ -17,7 +16,7 @@ export const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'user-events',
+    path: 'events',
     component: UserEventsPageComponent
   },
   {
@@ -33,27 +32,23 @@ export const routes: Routes = [
     component: RegisterPageComponent
   },
   {
-    path: 'events',
+    path: 'organizer/events',
     component: EventsComponent
   },
   {
-    path: 'user-event-details-page/:id', 
+    path: 'user/:id', 
     component: UserEventDetailsPageComponent
   },
   {
-    path: 'create-event',
+    path: 'organizer/events/new',
     component: CreateEventComponent
   },
   { 
-    path: 'edit-event/:id', 
+    path: 'organizer/events/update/:id', 
     component: EditEventComponent 
   }, 
-  {
-    path: 'register',
-    component:RegisterPageComponent
-  },
-  {
-     path: 'update-profile', 
-     component: UpdateProfilePageComponent
-  },
+  // {
+  //    path: 'update-profile', 
+  //    component: UpdateProfilePageComponent
+  // },
 ];
