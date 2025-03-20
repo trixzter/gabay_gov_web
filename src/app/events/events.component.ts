@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EventModel } from '../models/event.model';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterModule } from '@angular/router';
 import { EventService } from '../services/events/event.service';
 import { OrganizerNavigationHeaderComponent } from '../organizer-navigation-header/organizer-navigation-header.component';
 import { PageLoadingIndicatorsComponent } from '../page-loading-indicators/page-loading-indicators.component';
@@ -14,7 +14,8 @@ import { BASE_URL } from '../app.constants';
     CommonModule, 
     RouterLink, 
     OrganizerNavigationHeaderComponent,
-    PageLoadingIndicatorsComponent
+    PageLoadingIndicatorsComponent,
+    RouterModule
   ],
   templateUrl: './events.component.html',
   styleUrl: './events.component.scss'

@@ -27,7 +27,7 @@
 }
 
 .input-box {
-  width: 100%;
+  width: 90%;
   padding: 10px;
   margin: 10px 0;
   border-radius: 25px;
@@ -49,8 +49,15 @@
   border-radius: 25px;
   cursor: pointer;
   margin-top: 10px;
-  font-size: 13px;
+  font-size: 16px;
   color: white;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-bottom: 20px;
+}
+
+.login-button:hover {
+  background-color: #274bb3;
+  transform: scale(1.05);
 }
 
 .create-password-account {
@@ -66,7 +73,7 @@
 }
 
 .gov-id {
-  width: 100%;
+  width: 95%;
   padding: 10px;
   margin: 10px 0;
   border-radius: 25px;
@@ -75,4 +82,11 @@
   text-align: left;
   color: white;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-bottom: 20px;
+}
+
+.gov-id:hover {
+  background-color: #274bb3;
+  transform: scale(1.05);
 }

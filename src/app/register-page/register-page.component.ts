@@ -22,6 +22,7 @@ export class RegisterPageComponent {
   governmentId: string = '';
   selectedFile: File | null = null;
   isUploading = false;
+  submitted = false;
 
   constructor(
     private router: Router,
@@ -36,8 +37,18 @@ export class RegisterPageComponent {
 
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
+    
     if (input.files && input.files.length > 0) {
       this.selectedFile = input.files[0];
+      
+     
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.governmentId = reader.result as string;
+      };
+      reader.readAsDataURL(this.selectedFile);
+      
+    
       this.uploadFile();
     }
   }
@@ -54,6 +65,7 @@ export class RegisterPageComponent {
         this.isUploading = false;
       },
       error: () => {
+        console.error('Error uploading file:');
         this.isUploading = false;
         alert('Failed to upload government ID. Please try again.');
       },
@@ -72,12 +84,18 @@ export class RegisterPageComponent {
 
     this.userService.register(user).subscribe({
       next: () => {
-        alert('Registration successful!');
+        console.log('Event created successfully:');
+        this.submitted = true;
         this.router.navigate(['/login']);
       },
       error: () => {
-        alert('Registration failed. Please try again.');
-      },
+        console.error('Error creating event:');
+        alert('Failed to save event. Please try again.');
+      }
     });
   }
 }
+
+
+  
+

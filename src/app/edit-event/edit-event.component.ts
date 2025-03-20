@@ -101,7 +101,7 @@ export class EditEventComponent implements OnInit {
     this.eventService.updateEvent(this.eventId, this.event).subscribe({
       next: () => {
         alert('Event updated successfully!');
-        this.router.navigate(['/events']);
+        this.router.navigate(['/organizer/events']);
       },
       error: (err) => console.error('Error updating event:', err),
     });
@@ -120,7 +120,7 @@ export class EditEventComponent implements OnInit {
       next: () => {
         alert('Event deleted successfully!');
         this.isDeletePopupVisible = false;
-        this.router.navigate(['/events']);
+        this.router.navigate(['/organizer/events']);
       },
       error: (err) => console.error('Error deleting event:', err),
     });

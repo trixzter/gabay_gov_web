@@ -106,7 +106,7 @@ export class CreateEventComponent implements OnInit {
       next: (response) => {
         console.log('Event created successfully:', response);
         this.submitted = true;
-        this.router.navigate(['/events']);
+        this.router.navigate(['/organizer/events']);
       },
       error: (error) => {
         console.error('Error creating event:', error);
