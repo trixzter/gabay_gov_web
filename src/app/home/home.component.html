@@ -25,7 +25,7 @@
         <h3 class="event-title">{{ event.title }}</h3>
         <p class="event-date-time">{{ event.date }} | {{ event.time }}</p>
         <button
-          [routerLink]="['/user', event.id]"
+          [routerLink]="['/events', event.id]"
           routerLinkActive="active"
           class="event-button"
         >
