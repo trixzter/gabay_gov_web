@@ -7,9 +7,6 @@
   [ngClass]="{ 'loading-background': loadingState === STATE.ON_GOING }"
 >
   <ng-container *ngIf="loadingState === STATE.SUCCESS && event">
-    <div class="image-content">
-      <img class="background-image" src="BACKGROUND.jpg" alt="background" />
-    </div>
     <div class="libreng-gupit-content">
       <img
         [src]="getEventImageSrc(event)"

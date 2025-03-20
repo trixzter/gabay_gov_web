@@ -13,8 +13,11 @@
 }
 
 .event-image {
-  width: 367px;
-  height: 119px;
+  width: 400px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
 }
 
 .event-content {

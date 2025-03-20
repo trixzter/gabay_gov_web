@@ -20,7 +20,6 @@ export class UserService {
   login(user: UserModel): Observable<any> {
     return this.http.post(`${BASE_URL}/users/login`, user);
   }
-  
   updateUser(id: number, user: UserModel): Observable<any> {
     return this.http.put(`${BASE_URL}/users/${id}`, user);
   }

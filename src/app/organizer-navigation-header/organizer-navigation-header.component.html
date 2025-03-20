@@ -7,15 +7,15 @@
     <h4>Admin Dashboard</h4>
   </div>
   <div class="nav-links">
-    <a routerLink="/events">Events</a>
-    <a routerLink="/create-event">Create Event</a>
+    <a routerLink="/organizer/events">Events</a>
+    <a routerLink="/organizer/events/new">Create Event</a>
   </div>
   <div class="menu-container">
     <div class="menu-icon" (click)="toggleDropdown()">&#9776;</div>
     <div class="dropdown-menu" *ngIf="isDropdownOpen">
-      <a routerLink="/update-profile">
+      <!-- <a routerLink="/update-profile">
         <span class="fa fa-user"> User Profile</span>
-      </a>
+      </a> -->
       <a (click)="logout()">
         <span class="fa fa-sign-out"> Logout</span>
       </a>

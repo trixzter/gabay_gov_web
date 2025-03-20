@@ -31,8 +31,7 @@ export class LoginComponent {
     this.userService.login(user).subscribe({
       next: (res: any) => {
         console.log('Login successful:', res);
-        alert('Login successful!');
-        this.router.navigate(['/events']);
+        this.router.navigate(['/organizer/events']);
       },
       error: (err) => {
         console.error('Login failed:', err);

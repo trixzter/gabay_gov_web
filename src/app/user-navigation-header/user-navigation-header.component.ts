@@ -23,7 +23,7 @@ export class UserNavigationHeaderComponent {
 
   onSearch(): void {
     if (this.title || this.location) {
-      this.router.navigate(['/user-events'], {
+      this.router.navigate(['/events'], {
         queryParams: { title: this.title, location: this.location }
       });
     }
